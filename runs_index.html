@@ -23,8 +23,7 @@
 				//document.write( "WebView InputString received FROM app: " + appInventorInput );
 				$('#FromApp').css("color", "blue").text("WebView InputString received FROM app: " + appInventorInput );
 				result = appInventorInput.split("").reverse().join("");
-				$('#ToApp').css("color", "red").text( "<p/>WebView InputString sending BACK TO app:<br/>" +
-				result );
+				$('#ToApp').css("color", "red").text( "WebView InputString sending BACK TO app:" + result );
 				//document.write( "<p/>WebView InputString sending BACK TO app:<br/>" +
 				//result );
 			} else {
@@ -38,6 +37,7 @@
 
 <body onload="processJavascript();">
 	<div id="FromApp"></div>
+	<div></div>
 	<div id="ToApp"></div>
 	<b>This page includes a javascript function that reverses text.</b>
 	<p>The javascript function incorporates a special App Inventor feature called <i>window.AppInventor.getWebViewString()</i>, which allows App Inventor apps to communicate with the WebViewer component's internal processing of javascript.

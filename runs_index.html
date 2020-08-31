@@ -3,7 +3,15 @@
 	<title>WebView Javascript Processor</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<style>
+		.redtext {
+		  color: red;
+		}
 
+		.bluetext {
+		  color: blue;
+		}
+		</style>
 	<script>
 		
 			function processJavascript() {
@@ -13,10 +21,10 @@
 				
 			if (appInventorInput.length > 0) {
 				//document.write( "WebView InputString received FROM app: " + appInventorInput );
-				$('#FromApp').text("WebView InputString received FROM app: " + appInventorInput );
+				$('#FromApp').text("WebView InputString received FROM app: " + appInventorInput ).css("color", "blue");
 				result = appInventorInput.split("").reverse().join("");
 				$('#ToApp').text( "<p/>WebView InputString sending BACK TO app:<br/>" +
-				result );
+				result ).css("color", "red");
 				//document.write( "<p/>WebView InputString sending BACK TO app:<br/>" +
 				//result );
 			} else {

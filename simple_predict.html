@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Simple Prediction</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+		<script src="https://unpkg.com/brain.js"></script>
+	</head>
+	<body>
+		<div id="wrapper">
+		</div>
+		<script>
+		/*
+			const net = new brain.recurrent.LSTMTimeStep({
+			  inputSize: 2,
+			  hiddenLayers: [10],
+			  outputSize: 2,
+			});
+
+			net.train([
+			  [1, 3],
+			  [2, 2],
+			  [3, 1],
+			]);
+
+			const output = net.run([
+			  [1, 3],
+			  [2, 2],
+			]); // [3, 1]
+			
+			$('#wrapper').text('['+Math.round(output[0])+ ', ' + Math.round(output[0])+ ']');*/
+			
+			const net = new brain.recurrent.LSTMTimeStep({
+			  inputSize: 2,
+			  hiddenLayers: [10],
+			  outputSize: 2,
+			});
+
+			// Same test as previous, but combined on a single set
+			const trainingData = [
+			  [
+				[1, 5],
+				[2, 4],
+				[3, 3],
+				[4, 2],
+				[5, 1],
+				[1, 2],
+				[3, 4],
+				[1, 1],
+			  ],
+			];
+
+			net.train(trainingData, { log: true, errorThresh: 0.09 });
+
+			var closeToFiveAndOne = net.run([
+			  [4, 2],
+			  [5, 1],
+			  [1, 2],
+			]);
+
+//			Math.round(closeToFiveAndOne[0]);
+
+//			Math.round(closeToFiveAndOne[1]);
+		
+			closeToFiveAndOne = closeToFiveAndOne.map(function(each_element){
+				return Number(each_element.toFixed(0));
+			});
+		
+			// now we're cookin' with gas!
+			var forecast = net.forecast(
+			  [
+				[1, 5],
+				[2, 4],
+			  ],
+			  3
+			);
+				
+			var x = 0;
+			var lenx = forecast.length;
+			while(x < lenx){
+				var y = 0;
+				var leny = forecast[x].length;
+				while(y < leny){
+					forecast[x][y] = forecast[x][y].toFixed(0);
+					y++;
+				}
+				x++;
+			}
+			var output = closeToFiveAndOne+'<br><br><br>'; //+forecast;
+			var x = 0;
+			var lenx = forecast.length;
+			while(x < lenx){
+				output = output+forecast[x]+'<br>';
+				x++;
+			}
+			$('#wrapper').html(output);
+		</script>
+	</body>
+</html>

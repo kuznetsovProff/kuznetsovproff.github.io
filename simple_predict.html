@@ -26,7 +26,7 @@
 			</div>
 			<div class="row">
 				<div class="col-12 d-flex justify-content-center">
-					<p>Check boxes and press 'Send'</p>
+					<p>Check boxes and press 'Submit'</p>
 				</div>
 			</div>
 			<div class="row">
@@ -37,19 +37,6 @@
 					<!-- -->
 					<div id="checkboxeswrapper"></div>
 					<!-- -->
-					<div class="input-group mb-3 d-flex justify-content-center">
-					  <div class="input-group-prepend">
-						<div class="input-group-text">
-						  <input id="chk1" type="checkbox">
-						</div>
-						<div class="input-group-text">
-						  <input id="chk2" type="checkbox">
-						</div>
-						<div class="input-group-text">
-						  <input id="chk3" type="checkbox">
-						</div>
-					  </div>
-					</div>
 				</div>
 				<div class="col-4">
 					
@@ -63,7 +50,6 @@
 					<!-- -->
 					<div id="buttonswrapper"></div>
 					<!-- -->
-					<button id="btnSend" type="button" class="btn btn-primary">Send</button>
 				</div>
 				<div class="col-4">
 					
@@ -87,32 +73,6 @@
 					<!-- -->
 					<div id="usertablewrapper"></div>
 					<!-- -->
-					<table id="usertable" class="table table-dark table-striped">
-						<thead>
-						  <tr>
-							<th>User Check 1</th>
-							<th>User Check 2</th>
-							<th>User Check 3</th>
-						  </tr>
-						</thead>
-						<tbody id="userbody">
-						  <tr>
-							<td>1</td>
-							<td>0</td>
-							<td>0</td>
-						  </tr>
-						  <tr>
-							<td>0</td>
-							<td>1</td>
-							<td>0</td>
-						  </tr>
-						  <tr>
-							<td>0</td>
-							<td>0</td>
-							<td>1</td>
-						  </tr>
-						</tbody>
-					</table>
 				</div>
 				<div class="col-6">
 					<!-- -->
@@ -150,6 +110,100 @@
 		</div>
 		
 		<script>
+		//buttons
+		$('#buttonswrapper').append($('<button/>', {
+			id: 'btnSubmit',
+			type: 'button',
+			'class': 'btn btn-primary',
+			text: 'Submit',
+			click: function() {
+			// onclick
+			},
+		}));
+		//checkboxes
+		$('#checkboxeswrapper').append($('<div/>', {
+			'class': 'input-group mb-3 d-flex justify-content-center',
+			append: $('<div/>', {
+                id: 'checkboxesgroup',
+                class: 'input-group-prepend',
+            }), // end checkboxesgroup
+		}));
+		$('#checkboxesgroup').append($('<div/>', {
+			'class': 'input-group-text',
+			append: $('<input/>', {
+                id: 'chk1',
+				type: 'checkbox',
+				click: function() {
+					// onclick
+				},
+            }), // end chk1
+		}));
+		$('#checkboxesgroup').append($('<div/>', {
+			'class': 'input-group-text',
+			append: $('<input/>', {
+                id: 'chk2',
+				type: 'checkbox',
+				click: function() {
+					// onclick
+				},
+            }), // end chk2
+		}));
+		$('#checkboxesgroup').append($('<div/>', {
+			'class': 'input-group-text',
+			append: $('<input/>', {
+                id: 'chk3',
+				type: 'checkbox',
+				click: function() {
+					// onclick
+				},
+            }), // end chk3
+		}));
+		//tables
+		/*
+				<table id="usertable" class="table table-dark table-striped">
+						<thead>
+						  <tr>
+							<th>User Check 1</th>
+							<th>User Check 2</th>
+							<th>User Check 3</th>
+						  </tr>
+						</thead>
+						<tbody id="userbody">
+						  <tr>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+						  </tr>
+						  <tr>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+						  </tr>
+						  <tr>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+						  </tr>
+						</tbody>
+					</table>
+
+		*/
+		$('#usertablewrapper').append($('<table/>', {
+			id: 'usertable',
+			'class': 'table table-dark table-striped',
+			append: $('<thead/>', {
+                id: 'userthead',
+            }), // end thead
+		}));
+		$('#userthead').append($('<th/>', {
+			text: 'User Check 1',
+		}));
+		$('#userthead').append($('<th/>', {
+			text: 'User Check 2',
+		}));
+		$('#userthead').append($('<th/>', {
+			text: 'User Check 2',
+		}));
 		/*
 			const net = new brain.recurrent.LSTMTimeStep({
 			  inputSize: 2,

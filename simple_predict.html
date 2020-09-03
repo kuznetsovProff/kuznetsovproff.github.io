@@ -41,6 +41,7 @@
 						<span id='check1'>0</span>, <span id='check2'>0</span>, <span id='check3'>0</span>
 					</div>
 					<p></p>
+					<div id='resultswrapper' class='d-flex justify-content-center'></div>
 					<!-- -->
 				</div>
 				<div class="col-4">
@@ -97,6 +98,7 @@
 		chks[2] = 0;
 		var trainarr = [];
 		var predictarr = [0,0,0];
+		var success = 0;
 		
 		//buttons
 		$('#buttonswrapper').append($('<button/>', {
@@ -119,9 +121,12 @@
 				
 				if (predictarr[0]==_chks[0]&&predictarr[1]==_chks[1]&&predictarr[2]==_chks[2]) {
 					$('#predicttbody_row'+i).addClass('table-success');
+					success = success + 1;
 				} else {
 					$('#predicttbody_row'+i).addClass('table-danger');
 				}
+
+				$('#resultswrapper').text(((success / i)*100).toFixed(2)+'%');
 				
 				i=i+1;
 				
@@ -138,12 +143,13 @@
 
 				net.train(trainingData, { log: true, errorThresh: 0.09 });
 
+/*
 				var closeToFiveAndOne = net.run([trainarr[trainarr.length-1],trainarr[trainarr.length-2],trainarr[trainarr.length-3]]);
 
 				closeToFiveAndOne = closeToFiveAndOne.map(function(each_element){
 					return Number(each_element.toFixed(0));
 				});
-			
+*/			
 				// now we're cookin' with gas!
 				var forecast = net.forecast(
 				  [

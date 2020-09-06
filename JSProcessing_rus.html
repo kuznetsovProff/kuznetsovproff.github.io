@@ -1,0 +1,46 @@
+<!doctype html>
+<head>
+	<title>WebView JS Processing</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<style>
+		.redtext {
+		  color: red;
+		}
+
+		.bluetext {
+		  color: blue;
+		}
+		</style>
+	<script>
+		
+			function processJavascript() {
+			
+			var result = new Date().toString();
+			var appInventorInput = window.AppInventor.getWebViewString();
+				
+			if (appInventorInput.length > 0) {
+				if (appInventorInput=="][") { } else {
+				$('#FromApp').css("color", "blue").text("WebView InputString received FROM app:" + appInventorInput );
+				//Переварачиваем строки
+				result = appInventorInput.split("").reverse().join("");
+				$('#ToApp').css("color", "red").text( "WebView InputString sending BACK TO app:" + result );
+				}
+			} else {
+				document.write( "Нет входящей строки WebView установленной приложением: <br/>" + result );
+			}
+			window.AppInventor.setWebViewString( result );
+		}
+	</script>
+
+</head>
+
+<body onload="processJavascript();">
+	<div id="FromApp"></div>
+	<div></div>
+	<div id="ToApp"></div>
+	<b>Эта страница включает функцию javascript, переворачивающую текст.</b>
+	<p>Эта javascript функция связана со специальной функцией App Inventor - <i>window.AppInventor.getWebViewString()</i>, которая позволяет App Inventor взаимодействовать с компонентом WebViewer через javascript.
+	<p>Этот простой пример показывает как использовать функцию <i>window.AppInventor.getWebViewString()</i> получающую данные из компонента WebViewer, и передающую обратно в App Inventor через window.AppInventor.setWebViewString().
+</body>
+</html>

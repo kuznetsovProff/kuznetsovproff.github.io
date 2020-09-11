@@ -1,7 +1,7 @@
 ## Welcome to kuznetsovproff.github.io
-Добро пожаловать на страницу kuznetsovproff.github.io *(in russian)*
+Р”РѕР±СЂРѕ РїРѕР¶Р°Р»РѕРІР°С‚СЊ РЅР° СЃС‚СЂР°РЅРёС†Сѓ kuznetsovproff.github.io *(in russian)*
 
 This site is published with [GitHub Pages](https://pages.github.com/) for personal projects of Alexey Kuznetsov.
-Этот сайт создан с помощью [GitHub Pages](https://pages.github.com/) для проектов Алексея Кузнецова. *(in russian)*
+Р­С‚РѕС‚ СЃР°Р№С‚ СЃРѕР·РґР°РЅ СЃ РїРѕРјРѕС‰СЊСЋ [GitHub Pages](https://pages.github.com/) РґР»СЏ РїСЂРѕРµРєС‚РѕРІ РђР»РµРєСЃРµСЏ РљСѓР·РЅРµС†РѕРІР°.*(in russian)*
 
-[Быстрый старт](QuickStart.md) (Quick Start - is only for Russians).
+[Р‘С‹СЃС‚СЂС‹Р№ СЃС‚Р°СЂС‚](QuickStart.md) (Quick Start - is only for Russians).

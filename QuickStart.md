@@ -77,7 +77,18 @@
   <head>
     <title>Заголовок страницы</title>
     <style>
-    
+      body {
+        font-family: verdana;
+        background-color: gold;
+      }
+
+      h1 {
+        color: white;
+      } 
+
+      p {
+        font-weight: bold;
+      } 
     </style>
   </head>
   <body>

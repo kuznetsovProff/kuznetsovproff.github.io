@@ -166,4 +166,50 @@
   </body>
 </html>
 ```
+
 Наш текст выглядит также, но сейчас создан с помощью JQuery. Посмотреть как работает код можно по  [ссылке](https://codepen.io/kuznetsovproff/pen/VwjaNqW).
+
+А сейчас в код добавим немного анимации: при наведении курсором мыши на заголовок цвет параграфа изменится.
+
+```html
+<html>
+  <head>
+    <title>Заголовок страницы</title>
+    <style>
+      body {
+        font-family: verdana;
+        background-color: gold;
+      }
+
+      h1 {
+        color: white;
+      } 
+
+      p {
+        font-weight: bold;
+      } 
+	  
+	  .p_white {
+		color: white;
+	  }
+    </style>
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  </head>
+  <body>
+	<script>
+		var h1 = $("<h1></h1>").text("Привет, Мир!");
+		var p = $("<p></p>").text("Сегодня хороший день чтобы узнать что-то новое!");
+		$("body").append(h1,p);
+        $("h1")
+        .mouseover(function() {
+			$("p").addClass("p_white");
+        })
+        .mouseout(function(){
+			$("p").removeClass("p_white");
+        });
+	</script>
+  </body>
+</html>
+```
+
+Рабочий код программы доступен по [ссылке](https://codepen.io/kuznetsovproff/pen/GRqZLbx).

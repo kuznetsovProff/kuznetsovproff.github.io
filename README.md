@@ -8,4 +8,4 @@ This site is published with [GitHub Pages](https://pages.github.com/) for person
 
 #### [Быстрый старт](QuickStart.md) (Quick Start - is only for Russians).
 
-#### [В помощь юристу](ToHelpALawyer.md) (To Help A Lawyer - is only for Russians).
+#### [В помощь юристу](ToHelpALawyer.md) (To Help A Lawyer - is only for Russian Lawyers).

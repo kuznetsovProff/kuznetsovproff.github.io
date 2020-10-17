@@ -93,16 +93,16 @@ Spring
 Springs
 Soft Body
 SmokeParticles
-Brownian Motion
-Chain
-Snowflakes
-Penrose Tiles
-Recursive Tree
-The Mandelbrot Set
-Koch Curve
-Bubble Sort
-Stepping Feet Illusion
-Particles
++Brownian Motion
++Chain
++Snowflakes
++Penrose Tiles
++Recursive Tree
++The Mandelbrot Set
++Koch Curve
++Bubble Sort
++Stepping Feet Illusion
++Particles
 
 # Interaction
 Tickle

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Заявление о возбуждении исполнительного производства</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+		<script src="https://kit.fontawesome.com/f4afbaa213.js" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="../../css/style.css">
+		<link rel="stylesheet" href="../../css/gutenberg.min.css" media="print">
+		<link rel="stylesheet" href="../../css/print.css" media="print"/>
+	</head>
+	<body>
+	
+		<nav id="topnavbar" class="navbar navbar-expand-sm bg-success navbar-dark fixed-top blockshadow no-print">
+		  <ul class="navbar-nav">
+			<li class="nav-item active">
+			  <a class="nav-link align-middle" href="https://kuznetsovproff.github.io/"><i class="far fa-file-alt"></i> KuznetsovProff.Github.io</a>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link" href="https://kuznetsovproff.github.io/">Образцы заявлений</a>
+			</li>
+		  </ul>
+		</nav>
+		<div id="topnavbarback" class="no-print">
+			<div class="undernavbarsection"></div>
+		</div>
+		<div class="container">
+			<div class="row">
+			  <div class="col"></div>
+			  <div class="col">
+				<div class="text-left">В <span id="ospname">______________________________</span></div>
+				<div id="ospname_note" class="text-left note">(наименование отдела судебных приставов)</div>
+				<div class="emptyline"></div>
+				<div class="text-left">от <span id="claimantname">______________________________</span></div>
+				<div class="text-left note">(ФИО взыскателя)</div>
+				<div class="text-left">адрес: <span id="claimantaddress">__________________________</span></div>
+				<div class="text-left">телефон: <span id="claimantphone">________________________</span></div>
+			  </div>
+			</div>
+			
+			<div class="emptyline"></div>
+			<div class="emptyline"></div>
+			<div class="emptyline"></div>
+			<div class="text-center font-weight-bold">ЗАЯВЛЕНИЕ<br>
+			о возбуждении исполнительного производства</div>
+			<div class="emptyline"></div>
+			<div class="emptyline"></div>
+			<div class="text-justify text-indent">«___»_________ ____ г. по делу _________ (указать наименование дела; можно посмотреть наименование в шапке исполнительного документа) <span id="courtname">________(наименование суда, выдавшего исполнительный документ)</span> выдал <span id="documenttype">исполнительный документ _________ (исполнительный лист или судебный приказ)</span> <span id="debtor">в отношении должника _________ (ФИО должника, его место жительства или место пребывания, телефон, место работы)</span>.</div>
+			<div class="text-justify text-indent">Ранее по данному исполнительному документу исполнительное производство не возбуждалось (если возбуждалось, указать, когда возбуждалось, когда окончено и почему, какие исполнительные действия выполнены, сколько денег было взыскано, какое имущество передано).</div>
+			<div id="aboutdebtor" class="text-justify text-indent">Дополнительно сообщаю известные мне сведения о должнике и его имуществе: <span id="">_________ (указать все известные сведения о должнике и его имуществе, которые могут помочь в исполнении судебного постановления)</span>.</div>
+			<div id="aboutproperty" class="text-justify text-indent">В целях обеспечения исполнения требований, содержащихся в исполнительном документе, одновременно с возбуждением исполнительного производства необходимо решить вопрос о наложении ареста на имущество должника <span id="propertylist">_________ (при наличии сведений перечислить имущество, на которое должен быть наложен арест)</span>, поскольку должник может принять меры для сокрытия своего имущества.</div>
+			<div class="text-justify text-indent">На основании изложенного, руководствуясь статьей 30 Федерального закона «Об исполнительном производстве»,</div>
+			<div class="emptyline"></div>
+			<div class="text-center font-weight-bold">ПРОШУ:</div>
+			<div id="requestforenforcement" class="text-justify text-indent">1. Возбудить исполнительное производство.</div>
+			<div id="seizurerequest" class="text-justify text-indent">2. Наложить арест на имущество должника.</div>
+			<div class="emptyline"></div>
+			<div class="text-justify font-weight-bold text-indent">Приложения:</div>
+			<div id="attachment1" class="text-justify text-indent">1. Исполнительный документ</div>
+			<div id="attachment2" class="text-justify text-indent">2. Документы, содержащие информацию о должнике, его имущественном положении и иные сведения, которые могут иметь значение для своевременного и полного исполнения требований исполнительного документа</div>
+			<div class="emptyline"></div>
+			<div class="text-right font-weight-bold">Дата подачи заявления <span id="filingdate">«___»_________ ____ г.</span></div>
+			<div class="emptyline"></div>
+			<div class="text-right font-weight-bold">Подпись ______________</div>
+			<div class="emptyline"></div>
+		</div>
+		<div id="footer" class="downjumbo no-print text-center" style="margin-bottom:0">
+			<div class="whatsappme"><a class="text-success" href="http://wa.me/+79858442670"><i class="fab fa-whatsapp"></i> Алексей Кузнецов</a></div>
+		</div>
+		<script>
+			const url = new URL(document.location.href);
+			alert (url);
+			const paramsString = document.location.search; // ?page=4&limit=10&sortby=desc  
+			const searchParams = new URLSearchParams(paramsString);
+			
+			for(var pair of searchParams.entries()) {
+				/*console.log(pair[0]+ ', '+ pair[1]);*/
+				/*alert (pair[0]+ ', '+ pair[1]);*/
+				if (pair[0]=='ospname') {
+					$('#ospname').text(pair[1]);
+				}
+				
+			}
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,11 @@
+
+@media print {
+    /* здесь будут стили для печати */
+    body {
+		font-family: calibri;
+        font-size: 20px;
+    }
+	.note {
+		display: none;
+	}
+}

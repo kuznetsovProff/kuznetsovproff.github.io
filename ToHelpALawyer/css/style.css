@@ -1,0 +1,23 @@
+body {
+	font-family: calibri;
+    font-size: 18px;
+}
+.undernavbarsection{
+	padding: .5rem 1rem;
+	height: 5rem;
+}
+.emptyline{
+	height: 18px;
+}
+.text-indent {
+	text-indent: 40px;
+}
+.downjumbo{
+	padding: 4rem 2rem;
+	background-color: #e9ecef;
+}
+.blockshadow {
+  box-shadow: 3px 4px 17px -4px #53b625;
+}
+.whatsappme {
+}

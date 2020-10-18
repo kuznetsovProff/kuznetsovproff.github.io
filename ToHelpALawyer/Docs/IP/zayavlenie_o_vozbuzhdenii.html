@@ -14,17 +14,28 @@
 		<link rel="stylesheet" href="../../css/print.css" media="print"/>
 	</head>
 	<body>
-	
-		<nav id="topnavbar" class="navbar navbar-expand-sm bg-success navbar-dark fixed-top blockshadow no-print">
-		  <ul class="navbar-nav">
-			<li class="nav-item active">
-			  <a class="nav-link align-middle" href="https://kuznetsovproff.github.io/"><i class="far fa-file-alt"></i> KuznetsovProff.Github.io</a>
-			</li>
-			<li class="nav-item">
-			  <a class="nav-link" href="https://kuznetsovproff.github.io/">Образцы заявлений</a>
-			</li>
-		  </ul>
+		<nav id="topnavbar" class="navbar navbar-expand-sm bg-success navbar-dark fixed-top blockshadow no-print navbar-expand-md">
+			<a class="navbar-brand" href="https://kuznetsovproff.github.io/"><i class="far fa-file-alt"></i> KuznetsovProff.Github.io</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="https://kuznetsovproff.github.io/">Образцы заявлений</a>
+					</li>
+				</ul>
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a id="btnprint" class="nav-link" href="#"><i class="fas fa-print"></i></a>
+					</li>
+					<li class="nav-item">
+						<a id="btnlink" class="nav-link" href="#"><i class="fas fa-link"></i></a>
+					</li>
+				</ul>
+			</div>
 		</nav>
+		
 		<div id="topnavbarback" class="no-print">
 			<div class="undernavbarsection"></div>
 		</div>
@@ -72,20 +83,73 @@
 			<div class="whatsappme"><a class="text-success" href="http://wa.me/+79858442670"><i class="fab fa-whatsapp"></i> Алексей Кузнецов</a></div>
 		</div>
 		<script>
+			window.Clipboard = (function(window, document, navigator) {
+				var textArea,
+					copy;
+
+				function isOS() {
+					return navigator.userAgent.match(/ipad|iphone/i);
+				}
+
+				function createTextArea(text) {
+					textArea = document.createElement('textArea');
+					textArea.value = text;
+					document.body.appendChild(textArea);
+				}
+
+				function selectText() {
+					var range,
+						selection;
+
+					if (isOS()) {
+						range = document.createRange();
+						range.selectNodeContents(textArea);
+						selection = window.getSelection();
+						selection.removeAllRanges();
+						selection.addRange(range);
+						textArea.setSelectionRange(0, 999999);
+					} else {
+						textArea.select();
+					}
+				}
+
+				function copyToClipboard() {        
+					document.execCommand('copy');
+					document.body.removeChild(textArea);
+				}
+
+				copy = function(text) {
+					createTextArea(text);
+					selectText();
+					copyToClipboard();
+				};
+
+				return {
+					copy: copy
+				};
+			})(window, document, navigator);
+			
 			const url = new URL(document.location.href);
-			alert (url);
+			console.log (url);
 			const paramsString = document.location.search; // ?page=4&limit=10&sortby=desc  
 			const searchParams = new URLSearchParams(paramsString);
-			
+						
 			for(var pair of searchParams.entries()) {
-				/*console.log(pair[0]+ ', '+ pair[1]);*/
-				/*alert (pair[0]+ ', '+ pair[1]);*/
+				console.log (pair[0]+ ', '+ pair[1]);
 				if (pair[0]=='ospname') {
 					$('#ospname').text(pair[1]);
+					$('#ospname_note').hide();
 				}
 				
 			}
+						
+			$('#btnlink').on('click', function(){
+				Clipboard.copy(url);
+			});
 			
+			$('#btnprint').on('click', function(){
+				window.print();
+			});
 		</script>
 	</body>
 </html>

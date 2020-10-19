@@ -37,7 +37,9 @@ Share = {
 		url += '&imageurl='    + encodeURIComponent(pimg);
 		Share.popup(url)
 	},
-
+/*
+https://pinterest.com/pin/create/button/?url=https://yandex.ru&media=https://yandex.ru&description=text
+*/
 	popup: function(url) {
 		window.open(url,'','toolbar=0,status=0,width=626,height=436');
 	}

@@ -38,6 +38,14 @@ Share = {
 		Share.popup(url)
 	},
 /*
+вот это вещь
+https://yandex.ru/dev/share/doc/dg/add.html/
+
+
+<script src="https://yastatic.net/share2/share.js"></script>
+<div class="ya-share2" data-curtain data-size="l" data-color-scheme="whiteblack" data-services="collections,vkontakte,facebook,odnoklassniki,messenger,telegram,twitter,viber,whatsapp,moimir,pinterest,skype,tumblr,evernote,linkedin,lj,blogger,delicious,digg,reddit,pocket,qzone,renren,sinaWeibo,surfingbird,tencentWeibo"></div>
+
+
 https://pinterest.com/pin/create/button/?url=https://yandex.ru&media=https://yandex.ru&description=text
 */
 	popup: function(url) {

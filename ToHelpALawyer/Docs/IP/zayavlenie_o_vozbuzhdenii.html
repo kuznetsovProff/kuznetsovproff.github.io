@@ -9,6 +9,8 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 		<script src="https://kit.fontawesome.com/f4afbaa213.js" crossorigin="anonymous"></script>
+		<script src="../../js/copytoclipboard.js"></script>
+		<script src="../../js/socialshare.js"></script>
 		<link rel="stylesheet" href="../../css/style.css">
 		<link rel="stylesheet" href="../../css/gutenberg.min.css" media="print">
 		<link rel="stylesheet" href="../../css/print.css" media="print"/>
@@ -31,6 +33,9 @@
 					</li>
 					<li class="nav-item">
 						<a id="btnlink" class="nav-link" href="#"><i class="fas fa-link"></i></a>
+					</li>
+					<li class="nav-item">
+						<a id="btnshare" class="nav-link" href="#"><i class="fas fa-share"></i></a>
 					</li>
 				</ul>
 			</div>
@@ -78,57 +83,71 @@
 			<div class="emptyline"></div>
 			<div class="text-right font-weight-bold">Подпись ______________</div>
 			<div class="emptyline"></div>
+			
+			<!-- The Modal -->
+			<div class="modal fade" id="modalshare">
+				<div class="modal-dialog modal-dialog-centered">
+					<div class="modal-content">
+				  
+						<!-- Modal Header -->
+						<div class="modal-header">
+							<h4 class="modal-title">Поделиться в соц.сетях</h4>
+							<button type="button" class="close" data-dismiss="modal">×</button>
+						</div>
+						
+						<!-- Modal body -->
+						<div id="icons" class="modal-body text-center container">
+							<div class="row">
+								<div class="col">
+									<button type="button" id="btnvk" class="btn btn-white text-primary">
+										<i class="fab fa-vk fa-2x"></i>
+									</button>
+								</div>
+								<div class="col">
+									<button type="button" id="btnok" class="btn btn-white text-primary">
+										<i class="fab fa-odnoklassniki fa-2x"></i>
+									</button>
+								</div>
+								<div class="col">
+									<button type="button" id="btnfacebook" class="btn btn-white text-primary">
+										<i class="fab fa-facebook-f fa-2x"></i>
+									</button>
+								</div>
+								<div class="col">
+									<button type="button" id="btntwitter" class="btn btn-white text-primary">
+										<i class="fab fa-twitter  fa-2x"></i>
+									</button>
+								</div>
+								<div class="col">
+									<button type="button" id="btnmailru" class="btn btn-white text-primary">
+										<i class="fas fa-at fa-2x"></i>
+									</button>
+								</div>
+								<div class="col">
+									<button type="button" id="btnpinterest" class="btn btn-white text-primary">
+										<i class="fab fa-pinterest-p fa-2x"></i>
+									</button>
+								</div>
+							</div>
+						</div>
+						
+						<!-- Modal footer -->
+						<div class="modal-footer">
+							<button type="button" class="btn btn-danger" data-dismiss="modal">Закрыть</button>
+						</div>
+					
+					</div>
+				</div>
+			</div>
+
+			
+			
 		</div>
 		<div id="footer" class="downjumbo no-print text-center" style="margin-bottom:0">
 			<div class="whatsappme"><a class="text-success" href="http://wa.me/+79858442670"><i class="fab fa-whatsapp"></i> Алексей Кузнецов</a></div>
 		</div>
 		<script>
-			window.Clipboard = (function(window, document, navigator) {
-				var textArea,
-					copy;
-
-				function isOS() {
-					return navigator.userAgent.match(/ipad|iphone/i);
-				}
-
-				function createTextArea(text) {
-					textArea = document.createElement('textArea');
-					textArea.value = text;
-					document.body.appendChild(textArea);
-				}
-
-				function selectText() {
-					var range,
-						selection;
-
-					if (isOS()) {
-						range = document.createRange();
-						range.selectNodeContents(textArea);
-						selection = window.getSelection();
-						selection.removeAllRanges();
-						selection.addRange(range);
-						textArea.setSelectionRange(0, 999999);
-					} else {
-						textArea.select();
-					}
-				}
-
-				function copyToClipboard() {        
-					document.execCommand('copy');
-					document.body.removeChild(textArea);
-				}
-
-				copy = function(text) {
-					createTextArea(text);
-					selectText();
-					copyToClipboard();
-				};
-
-				return {
-					copy: copy
-				};
-			})(window, document, navigator);
-			
+	
 			const url = new URL(document.location.href);
 			console.log (url);
 			const paramsString = document.location.search; // ?page=4&limit=10&sortby=desc  
@@ -142,14 +161,48 @@
 				}
 				
 			}
-						
-			$('#btnlink').on('click', function(){
-				Clipboard.copy(url);
-			});
+
+			$(document).ready(function(){
+				$('#btnlink').on('click', function(){
+					Clipboard.copy(url);
+				});
 			
-			$('#btnprint').on('click', function(){
-				window.print();
+				$('#btnprint').on('click', function(){
+					window.print();
+				});
+			
+				$("#btnshare").on('click', function(){
+					$("#modalshare").modal();
+				});
+				$("#btnvk").on('click', function(){
+					Share.vkontakte('URL','TITLE','IMG_PATH','DESC');
+					$("#modalshare").modal('hide');
+				});
+				$("#btnok").on('click', function(){
+					Share.odnoklassniki('URL','DESC');
+					$("#modalshare").modal('hide');
+				});
+				$("#btnfacebook").on('click', function(){
+					Share.facebook('URL','TITLE','IMG_PATH','DESC');
+					$("#modalshare").modal('hide');
+				});
+				$("#btntwitter").on('click', function(){
+					Share.twitter('URL','TITLE');
+					$("#modalshare").modal('hide');
+				});
+				$("#btntmailru").on('click', function(){
+					Share.mailru('URL','TITLE','IMG_PATH','DESC');
+					$("#modalshare").modal('hide');
+				});
+				$("#btnpinterest").on('click', function(){
+					
+					$("#modalshare").modal('hide');
+				});
 			});
 		</script>
+<!--
+Шаринг в соцсети
+https://habr.com/ru/post/156185/
+-->
 	</body>
 </html>

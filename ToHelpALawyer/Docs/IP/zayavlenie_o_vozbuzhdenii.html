@@ -97,37 +97,22 @@
 						
 						<!-- Modal body -->
 						<div id="icons" class="modal-body text-center container">
-							<div class="row">
-								<div class="col">
-									<button type="button" id="btnvk" class="btn btn-white text-primary">
-										<i class="fab fa-vk fa-2x"></i>
-									</button>
-								</div>
-								<div class="col">
-									<button type="button" id="btnok" class="btn btn-white text-primary">
-										<i class="fab fa-odnoklassniki fa-2x"></i>
-									</button>
-								</div>
-								<div class="col">
-									<button type="button" id="btnfacebook" class="btn btn-white text-primary">
-										<i class="fab fa-facebook-f fa-2x"></i>
-									</button>
-								</div>
-								<div class="col">
-									<button type="button" id="btntwitter" class="btn btn-white text-primary">
-										<i class="fab fa-twitter  fa-2x"></i>
-									</button>
-								</div>
-								<div class="col">
-									<button type="button" id="btnmailru" class="btn btn-white text-primary">
-										<i class="fas fa-at fa-2x"></i>
-									</button>
-								</div>
-								<div class="col">
-									<button type="button" id="btnpinterest" class="btn btn-white text-primary">
-										<i class="fab fa-pinterest-p fa-2x"></i>
-									</button>
-								</div>
+							<div class="btn-group">
+								<button type="button" id="btnvk" class="btn btn-white text-primary">
+									<i class="fab fa-vk fa-2x"></i>
+								</button>
+								<button type="button" id="btnok" class="btn btn-white text-primary">
+									<i class="fab fa-odnoklassniki fa-2x"></i>
+								</button>
+								<button type="button" id="btnfacebook" class="btn btn-white text-primary">
+									<i class="fab fa-facebook-f fa-2x"></i>
+								</button>
+								<button type="button" id="btntwitter" class="btn btn-white text-primary">
+									<i class="fab fa-twitter  fa-2x"></i>
+								</button>
+								<button type="button" id="btnmailru" class="btn btn-white text-primary">
+									<i class="fas fa-at fa-2x"></i>
+								</button>
 							</div>
 						</div>
 						
@@ -190,12 +175,8 @@
 					Share.twitter('URL','TITLE');
 					$("#modalshare").modal('hide');
 				});
-				$("#btntmailru").on('click', function(){
+				$("#btnmailru").on('click', function(){
 					Share.mailru('URL','TITLE','IMG_PATH','DESC');
-					$("#modalshare").modal('hide');
-				});
-				$("#btnpinterest").on('click', function(){
-					
 					$("#modalshare").modal('hide');
 				});
 			});

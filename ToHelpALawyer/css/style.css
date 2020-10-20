@@ -24,3 +24,21 @@ body {
 #icons {
 	font-size: 1rem;
 }
+.bg-primary-opacity-20 {
+	background-color: rgba(0,123,255,0.20);
+}
+.bg-primary-opacity-33 {
+	background-color: rgba(0,123,255,0.33);
+}
+.bg-success-opacity-20 {
+	background-color: rgba(40,167,69,0.20);
+}
+.bg-success-opacity-33 {
+	background-color: rgba(40,167,69,0.33);
+}
+.bg-warning-opacity-20 {
+	background-color: rgba(255,193,7,0.20);
+}
+.bg-warning-opacity-33 {
+	background-color: rgba(255,193,7,0.33);
+}

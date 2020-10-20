@@ -10,7 +10,8 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 		<script src="https://kit.fontawesome.com/f4afbaa213.js" crossorigin="anonymous"></script>
 		<script src="../../js/copytoclipboard.js"></script>
-		<script src="../../js/socialshare.js"></script>
+		<!--<script src="../../js/socialshare.js"></script>-->
+		<script src="https://yastatic.net/share2/share.js" async></script>
 		<link rel="stylesheet" href="../../css/style.css">
 		<link rel="stylesheet" href="../../css/gutenberg.min.css" media="print">
 		<link rel="stylesheet" href="../../css/print.css" media="print"/>
@@ -29,13 +30,13 @@
 				</ul>
 				<ul class="navbar-nav text-center">
 					<li class="nav-item">
-						<a id="btnprint" class="nav-link" href="#"><i class="fas fa-print"></i></a>
+						<a id="btnprint" class="nav-link" data-toggle="tooltip" title="Печать" href="#"><i class="fas fa-print"></i></a>
 					</li>
 					<li class="nav-item">
-						<a id="btnlink" class="nav-link" href="#"><i class="fas fa-link"></i></a>
+						<a id="btnlink" class="nav-link" data-toggle="tooltip" title="Копировать ссылку" href="#"><i class="fas fa-link"></i></a>
 					</li>
 					<li class="nav-item">
-						<a id="btnshare" class="nav-link" href="#"><i class="fas fa-share"></i></a>
+						<a id="btnshare" class="nav-link" data-toggle="tooltip" title="Поделиться ссылкой" href="#"><i class="fas fa-share"></i></a>
 					</li>
 				</ul>
 			</div>
@@ -48,13 +49,12 @@
 			<div class="row">
 			  <div class="col"></div>
 			  <div class="col">
-				<div class="text-left">В <span id="ospname">______________________________</span></div>
-				<div id="ospname_note" class="text-left note">(наименование отдела судебных приставов)</div>
+				<div class="text-left"><div class="d-inline">В <span id="ospname" class="bg-primary-opacity-20" contenteditable="true">(наименование отдела судебных приставов)</span></div></div>
 				<div class="emptyline"></div>
-				<div class="text-left">от <span id="claimantname">______________________________</span></div>
-				<div class="text-left note">(ФИО взыскателя)</div>
-				<div class="text-left">адрес: <span id="claimantaddress">__________________________</span></div>
-				<div class="text-left">телефон: <span id="claimantphone">________________________</span></div>
+				<div class="text-left">от <span id="claimantname" class="bg-primary-opacity-20" contenteditable="true">(ФИО взыскателя)</span></div>
+				<div class="text-left note"></div>
+				<div class="text-left">адрес: <span id="claimantaddress" class="bg-primary-opacity-20" contenteditable="true">(адрес взыскателя)</span></div>
+				<div class="text-left">телефон: <span id="claimantphone" class="bg-primary-opacity-20" contenteditable="true">(телефон взыскателя)</span></div>
 			  </div>
 			</div>
 			
@@ -91,12 +91,14 @@
 				  
 						<!-- Modal Header -->
 						<div class="modal-header">
-							<h4 class="modal-title">Поделиться в соц.сетях</h4>
+							<h4 class="modal-title">Поделиться ссылкой</h4>
 							<button type="button" class="close" data-dismiss="modal">×</button>
 						</div>
 						
 						<!-- Modal body -->
 						<div id="icons" class="modal-body text-center container">
+							<div class="ya-share2" data-curtain data-size="l" data-shape="round" data-services="vkontakte,facebook,odnoklassniki,messenger,telegram,twitter,viber,whatsapp,pinterest,collections,moimir,skype,tumblr,evernote,linkedin,lj,blogger,delicious,digg,reddit,pocket,qzone,renren,sinaWeibo,surfingbird,tencentWeibo"></div>
+							<!--
 							<div class="btn-group">
 								<button type="button" id="btnvk" class="btn btn-white text-primary">
 									<i class="fab fa-vk fa-2x"></i>
@@ -114,6 +116,7 @@
 									<i class="fas fa-at fa-2x"></i>
 								</button>
 							</div>
+							-->
 						</div>
 						
 						<!-- Modal footer -->
@@ -129,7 +132,7 @@
 			
 		</div>
 		<div id="footer" class="downjumbo no-print text-center" style="margin-bottom:0">
-			<div class="whatsappme"><a class="text-success" href="http://wa.me/+79858442670"><i class="fab fa-whatsapp"></i> Алексей Кузнецов</a></div>
+			<div class="whatsappme"><a class="text-success" data-toggle="tooltip" data-placement="top" title="Написать автору в WhatsApp" href="http://wa.me/+79858442670"><i class="fab fa-whatsapp"></i> Алексей Кузнецов</a></div>
 		</div>
 		<script>
 	
@@ -159,6 +162,9 @@
 				$("#btnshare").on('click', function(){
 					$("#modalshare").modal();
 				});
+				
+				$('[data-toggle="tooltip"]').tooltip(); 
+				
 				$("#btnvk").on('click', function(){
 					Share.vkontakte('URL','TITLE','IMG_PATH','DESC');
 					$("#modalshare").modal('hide');

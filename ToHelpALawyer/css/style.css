@@ -24,11 +24,17 @@ body {
 #icons {
 	font-size: 1rem;
 }
+.bg-primary-opacity-10 {
+	background-color: rgba(0,123,255,0.10);
+}
 .bg-primary-opacity-20 {
 	background-color: rgba(0,123,255,0.20);
 }
 .bg-primary-opacity-33 {
 	background-color: rgba(0,123,255,0.33);
+}
+.bg-success-opacity-10 {
+	background-color: rgba(40,167,69,0.10);
 }
 .bg-success-opacity-20 {
 	background-color: rgba(40,167,69,0.20);
@@ -36,9 +42,27 @@ body {
 .bg-success-opacity-33 {
 	background-color: rgba(40,167,69,0.33);
 }
+.bg-warning-opacity-10 {
+	background-color: rgba(255,193,7,0.20);
+}
 .bg-warning-opacity-20 {
 	background-color: rgba(255,193,7,0.20);
 }
 .bg-warning-opacity-33 {
 	background-color: rgba(255,193,7,0.33);
 }
+
+[contenteditable] {
+  outline: 0px solid transparent;
+}
+
+[contenteditable=true]:empty:before{
+  content: attr(placeholder);
+  pointer-events: none;
+  display: block; /* For Firefox */
+}
+/*
+span[contenteditable=true] {
+  border: 1px dashed #AAA;
+  padding: 1px;
+}*/

@@ -61,6 +61,7 @@ body {
   pointer-events: none;
   display: block; /* For Firefox */
 }
+
 /*
 span[contenteditable=true] {
   border: 1px dashed #AAA;

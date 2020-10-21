@@ -8,4 +8,17 @@
 	.note {
 		display: none;
 	}
+	.divhidden {
+	  display: inline;
+	}
+	select {
+	  display: none;
+	}
+	.tooltip {
+	  display: none;
+	}
+	div[contenteditable=true]:empty {
+	  border: 0px;
+	  padding: 0px;
+	}
 }

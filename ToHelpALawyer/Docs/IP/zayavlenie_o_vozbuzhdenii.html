@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title>Заявление о возбуждении исполнительного производства</title>
+		<title>SHARE FORM | Заявление о возбуждении исполнительного производства</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -10,24 +10,29 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 		<script src="https://kit.fontawesome.com/f4afbaa213.js" crossorigin="anonymous"></script>
 		<script src="../../js/copytoclipboard.js"></script>
-		<!--<script src="../../js/socialshare.js"></script>-->
 		<script src="https://yastatic.net/share2/share.js" async></script>
+		<link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
 		<link rel="stylesheet" href="../../css/style.css">
 		<link rel="stylesheet" href="../../css/gutenberg.min.css" media="print">
 		<link rel="stylesheet" href="../../css/print.css" media="print"/>
 	</head>
 	<body>
 		<nav id="topnavbar" class="navbar navbar-expand-sm bg-success navbar-dark fixed-top blockshadow no-print navbar-expand-md">
-			<a class="navbar-brand text-center" href="https://kuznetsovproff.github.io/"><i class="far fa-file-alt"></i> KuznetsovProff.Github.io</a>
+			<a class="navbar-brand text-center" href="https://kuznetsovproff.github.io/"><span class="text-dark">SHARE</span> <span class="text-light"><i class="far fa-file-alt"></i> FORM</span></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNav">
+				
 				<ul class="navbar-nav mr-auto text-center">
+					<!--
 					<li class="nav-item active">
 						<a class="nav-link" href="https://kuznetsovproff.github.io/">Образцы заявлений</a>
 					</li>
+					-->
 				</ul>
+				
 				<ul class="navbar-nav text-center">
 					<li class="nav-item">
 						<a id="btnprint" class="nav-link" data-toggle="tooltip" title="Печать" href="#"><i class="fas fa-print"></i></a>
@@ -52,7 +57,6 @@
 				<div class="text-left"><div class="d-inline"><div class="d-inline">В </div><div id="ospname" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="(наименование отдела судебных приставов)"></div></div></div>
 				<div class="emptyline"></div>
 				<div class="text-left d-inline"><div class="d-inline">от </div><div id="claimantname" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="(ФИО взыскателя)"></div></div>
-				<div class="text-left note"></div>
 				<div class="text-left"><div class="d-inline">адрес: </div><div id="claimantaddress" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="(адрес взыскателя)"></div></div>
 				<div class="text-left"><div class="d-inline">телефон: </div><div id="claimantphone" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="(телефон взыскателя)"></div></div>
 			  </div>
@@ -65,7 +69,7 @@
 			о возбуждении исполнительного производства</div>
 			<div class="emptyline"></div>
 			<div class="emptyline"></div>
-			<div class="text-justify text-indent"><div id="docdate" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="«___»_________ ____ г. (дата выдачи исполнительного документа)"></div> по делу <span id="casenum" class="bg-warning-opacity-10" contenteditable="true">(указать наименование дела; можно посмотреть наименование в шапке исполнительного документа)</span> <span id="courtname" class="bg-warning-opacity-10" contenteditable="true">(наименование суда, выдавшего исполнительный документ)</span> выдал <span id="doctype" class="bg-warning-opacity-10" contenteditable="true">(исполнительный лист или судебный приказ)</span> в отношении должника <span id="debtor" class="bg-warning-opacity-10" contenteditable="true">(ФИО должника, его место жительства или место пребывания, телефон, место работы / наименование должника, ИНН, ОГРН, адрес регистрации, фактический адрес)</span>.</div>
+			<div class="text-justify text-indent"><div id="docdate" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="«___»_________ ____ г. (дата выдачи исполнительного документа)"></div> по делу <div id="casenum" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="(указать наименование дела; его можно посмотреть в шапке исполнительного документа)"></div> <div id="courtname" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="(наименование суда, выдавшего исполнительный документ)"></div> выдал <select class="selectpicker" change-control="#doctype"><option>исполнительный лист</option><option>судебный приказ</option></select> <div id="doctype" class="divhidden">исполнительный лист</div> в отношении должника <span id="debtor" class="bg-warning-opacity-10" contenteditable="true">(ФИО должника, его место жительства или место пребывания, телефон, место работы / наименование должника, ИНН, ОГРН, адрес регистрации, фактический адрес)</span>.</div>
 			<div class="text-justify text-indent"><span id="history" class="bg-warning-opacity-10" contenteditable="true">Ранее по данному исполнительному документу исполнительное производство не возбуждалось (если возбуждалось, указать, когда возбуждалось, когда окончено и почему, какие исполнительные действия выполнены, сколько денег было взыскано, какое имущество передано).</span></div>
 			<div id="aboutdebtor" class="text-justify text-indent"><span id="addinfo" class="bg-warning-opacity-10" contenteditable="true">Дополнительно сообщаю известные мне сведения о должнике и его имуществе: (указать все известные сведения о должнике и его имуществе, которые могут помочь в исполнении судебного постановления)</span>.</div>
 			<div id="aboutproperty" class="text-justify text-indent">В целях обеспечения исполнения требований, содержащихся в исполнительном документе, одновременно с возбуждением исполнительного производства необходимо решить вопрос о наложении ареста на имущество должника <span id="propertylist">_________ (при наличии сведений перечислить имущество, на которое должен быть наложен арест)</span>, поскольку должник может принять меры для сокрытия своего имущества.</div>
@@ -164,7 +168,7 @@
 				});
 				
 				$('[data-toggle="tooltip"]').tooltip(); 
-				
+				/*
 				$("#btnvk").on('click', function(){
 					Share.vkontakte('URL','TITLE','IMG_PATH','DESC');
 					$("#modalshare").modal('hide');
@@ -184,6 +188,11 @@
 				$("#btnmailru").on('click', function(){
 					Share.mailru('URL','TITLE','IMG_PATH','DESC');
 					$("#modalshare").modal('hide');
+				});
+				*/
+				$('select.selectpicker').on('change', function(){
+				   var selected = $('.selectpicker option:selected').val();
+				   $($(this).attr('change-control')).text(selected);
 				});
 			});
 		</script>

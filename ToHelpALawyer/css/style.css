@@ -56,7 +56,10 @@ body {
   outline: 0px solid transparent;
   /*background-color: rgba(255,255,255,0.10);*/
 }
-
+select {
+  outline: 0px solid transparent;
+  background-color: rgba(255,193,7,0.10);
+}
 [contenteditable=true]:empty:before{
   content: attr(placeholder);
   pointer-events: none;
@@ -67,4 +70,14 @@ div[contenteditable=true]:empty {
   border: 1px dashed #AAA;
   padding: 1px;
   background-color: rgba(40,167,69,0.10);
+}
+
+div[contenteditable=true]:focus {
+  border: 1px dashed #AAA;
+  padding: 1px;
+  background-color: rgba(40,167,69,0.10);
+}
+
+.divhidden {
+  display: none;
 }

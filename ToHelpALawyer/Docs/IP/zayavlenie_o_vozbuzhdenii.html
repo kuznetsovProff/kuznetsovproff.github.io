@@ -69,8 +69,8 @@
 			о возбуждении исполнительного производства</div>
 			<div class="emptyline"></div>
 			<div class="emptyline"></div>
-			<div class="text-justify text-indent"><div id="docdate" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="«___»_________ ____ г. (дата выдачи исполнительного документа)"></div> по делу <div id="casenum" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="(указать наименование дела; его можно посмотреть в шапке исполнительного документа)"></div> <div id="courtname" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="(наименование суда, выдавшего исполнительный документ)"></div> выдал <select class="selectpicker" change-control="#doctype"><option>исполнительный лист</option><option>судебный приказ</option></select> <div id="doctype" class="divhidden">исполнительный лист</div> в отношении должника <span id="debtor" class="bg-warning-opacity-10" contenteditable="true">(ФИО должника, его место жительства или место пребывания, телефон, место работы / наименование должника, ИНН, ОГРН, адрес регистрации, фактический адрес)</span>.</div>
-			<div class="text-justify text-indent"><span id="history" class="bg-warning-opacity-10" contenteditable="true">Ранее по данному исполнительному документу исполнительное производство не возбуждалось (если возбуждалось, указать, когда возбуждалось, когда окончено и почему, какие исполнительные действия выполнены, сколько денег было взыскано, какое имущество передано).</span></div>
+			<div class="text-justify text-indent"><div id="docdate" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="«___»_________ ____ г. (дата выдачи исполнительного документа)"></div> по делу <div id="casenum" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="(указать наименование дела; его можно посмотреть в шапке исполнительного документа)"></div> <div id="courtname" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="(наименование суда, выдавшего исполнительный документ)"></div> выдал <select class="selectpicker" change-control="#doctype"><option>исполнительный лист</option><option>судебный приказ</option></select> <div id="doctype" class="divhidden">исполнительный лист</div> в отношении должника <div id="debtor" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="(ФИО должника, его место жительства или место пребывания, телефон, место работы / наименование должника, ИНН, ОГРН, адрес регистрации, фактический адрес)"></div>.</div>
+			<div id="p-history" class="text-justify text-indent"><div id="history" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="Ранее по данному исполнительному документу исполнительное производство не возбуждалось (если возбуждалось, указать, когда возбуждалось, когда окончено и почему, какие исполнительные действия выполнены, сколько денег было взыскано, какое имущество передано)."></div><div class="d-inline" close="#p-history">X</div></div>
 			<div id="aboutdebtor" class="text-justify text-indent"><span id="addinfo" class="bg-warning-opacity-10" contenteditable="true">Дополнительно сообщаю известные мне сведения о должнике и его имуществе: (указать все известные сведения о должнике и его имуществе, которые могут помочь в исполнении судебного постановления)</span>.</div>
 			<div id="aboutproperty" class="text-justify text-indent">В целях обеспечения исполнения требований, содержащихся в исполнительном документе, одновременно с возбуждением исполнительного производства необходимо решить вопрос о наложении ареста на имущество должника <span id="propertylist">_________ (при наличии сведений перечислить имущество, на которое должен быть наложен арест)</span>, поскольку должник может принять меры для сокрытия своего имущества.</div>
 			<div class="text-justify text-indent">На основании изложенного, руководствуясь статьей 30 Федерального закона «Об исполнительном производстве»,</div>
@@ -147,9 +147,9 @@
 						
 			for(var pair of searchParams.entries()) {
 				console.log (pair[0]+ ', '+ pair[1]);
+				// попробовать простое присваивание
 				if (pair[0]=='ospname') {
 					$('#ospname').text(pair[1]);
-					$('#ospname_note').hide();
 				}
 				
 			}
@@ -168,37 +168,13 @@
 				});
 				
 				$('[data-toggle="tooltip"]').tooltip(); 
-				/*
-				$("#btnvk").on('click', function(){
-					Share.vkontakte('URL','TITLE','IMG_PATH','DESC');
-					$("#modalshare").modal('hide');
-				});
-				$("#btnok").on('click', function(){
-					Share.odnoklassniki('URL','DESC');
-					$("#modalshare").modal('hide');
-				});
-				$("#btnfacebook").on('click', function(){
-					Share.facebook('URL','TITLE','IMG_PATH','DESC');
-					$("#modalshare").modal('hide');
-				});
-				$("#btntwitter").on('click', function(){
-					Share.twitter('URL','TITLE');
-					$("#modalshare").modal('hide');
-				});
-				$("#btnmailru").on('click', function(){
-					Share.mailru('URL','TITLE','IMG_PATH','DESC');
-					$("#modalshare").modal('hide');
-				});
-				*/
+				
 				$('select.selectpicker').on('change', function(){
 				   var selected = $('.selectpicker option:selected').val();
 				   $($(this).attr('change-control')).text(selected);
 				});
 			});
 		</script>
-<!--
-Шаринг в соцсети
-https://habr.com/ru/post/156185/
--->
+
 	</body>
 </html>

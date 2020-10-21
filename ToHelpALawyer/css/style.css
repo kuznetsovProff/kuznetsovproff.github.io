@@ -81,3 +81,17 @@ div[contenteditable=true]:focus {
 .divhidden {
   display: none;
 }
+
+[close] {
+  border: 1px dotted #dc3545;
+  padding: 1px;
+  color: #dc3545;
+  border-radius: 0.3rem;
+}
+[close]:hover {
+  border: 1px dottted #dc3545;
+  padding: 1px;
+  background-color: #dc3545;
+  color: #fff;
+  border-radius: 0.3rem;
+}

@@ -80,7 +80,15 @@ div[contenteditable=true]:focus {
 .divhidden {
   display: none;
 }
-
+[close=false] {
+  color: #dc3545;
+  padding: 4px 10px 2px 10px;
+}
+[close=true] {
+  color: #28a745;
+  padding: 4px 10px 2px 10px;
+}
+/*
 [close] {
   border: 1px dotted #dc3545;
   padding: 1px;
@@ -105,3 +113,4 @@ div[contenteditable=true]:focus {
   display: inline-block;
   
 }
+*/

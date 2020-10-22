@@ -70,9 +70,9 @@
 			<div class="emptyline"></div>
 			<div class="emptyline"></div>
 			<div class="text-justify text-indent"><div id="docdate" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="«___»_________ ____ г. (дата выдачи исполнительного документа)"></div> по делу <div id="casenum" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="(указать наименование дела; его можно посмотреть в шапке исполнительного документа)"></div> <div id="courtname" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="(наименование суда, выдавшего исполнительный документ)"></div> выдал <select class="selectpicker" change-control="#doctype"><option>исполнительный лист</option><option>судебный приказ</option></select> <div id="doctype" class="divhidden">исполнительный лист</div> в отношении должника <div id="debtor" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="(ФИО должника, дата и место рождения, его место жительства или место пребывания, телефон, место работы / наименование должника, ИНН, ОГРН, адрес регистрации, фактический адрес)"></div>.</div>
-			<div id="p-history" class="text-justify text-indent"><div id="history" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="Ранее по данному исполнительному документу исполнительное производство не возбуждалось (если возбуждалось, указать, когда возбуждалось, когда окончено и почему, какие исполнительные действия выполнены, сколько денег было взыскано, какое имущество передано)."></div><div class="d-inline" close="#p-history">×</div></div>
-			<div id="aboutdebtor" class="text-justify text-indent"><div id="addinfo" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="Дополнительно сообщаю известные мне сведения о должнике и его имуществе: (указать все известные сведения о должнике и его имуществе, которые могут помочь в исполнении судебного постановления)."></div><div class="d-inline" close="#aboutdebtor">×</div></div>
-			<div id="aboutproperty" class="text-justify text-indent"><div id="propertylist" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="В целях обеспечения исполнения требований, содержащихся в исполнительном документе, одновременно с возбуждением исполнительного производства необходимо решить вопрос о наложении ареста на имущество должника (при наличии сведений перечислить имущество, на которое должен быть наложен арест), поскольку должник может принять меры для сокрытия своего имущества."></div><div class="d-inline" close="#aboutproperty">×</div></div>
+			<div id="p-history" class="text-justify text-indent"><div id="history" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="Ранее по данному исполнительному документу исполнительное производство не возбуждалось (если возбуждалось, указать, когда возбуждалось, когда окончено и почему, какие исполнительные действия выполнены, сколько денег было взыскано, какое имущество передано)."></div><div class="d-inline" close="false" control="#history"><i class="no-print fas fa-chevron-left"></i></div></div>
+			<div id="aboutdebtor" class="text-justify text-indent"><div id="addinfo" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="Дополнительно сообщаю известные мне сведения о должнике и его имуществе: (указать все известные сведения о должнике и его имуществе, которые могут помочь в исполнении судебного постановления)."></div><div class="d-inline" close="false" control="#addinfo"><i class="no-print fas fa-chevron-left"></i></div></div>
+			<div id="aboutproperty" class="text-justify text-indent"><div id="propertylist" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="В целях обеспечения исполнения требований, содержащихся в исполнительном документе, одновременно с возбуждением исполнительного производства необходимо решить вопрос о наложении ареста на имущество должника (при наличии сведений перечислить имущество, на которое должен быть наложен арест), поскольку должник может принять меры для сокрытия своего имущества."></div><div class="d-inline" close="false" control="#propertylist"><i class="no-print fas fa-chevron-left"></i></div></div>
 			<div class="text-justify text-indent">На основании изложенного, руководствуясь статьей 30 Федерального закона «Об исполнительном производстве»,</div>
 			<div class="emptyline"></div>
 			<div class="text-center font-weight-bold">ПРОШУ:</div>
@@ -154,9 +154,20 @@
 				   var selected = $('.selectpicker option:selected').val();
 				   $($(this).attr('change-control')).text(selected);
 				});
-				$('[close]').on('click', function(){
-				   alert('close');
+				
+				$('div[close]').on('click', function(){
+					if ($(this).attr('close')=="false") {
+						$(this).attr('close',"true");
+						$(this).html('<i class="no-print fas fa-chevron-right"></i>');
+						$($(this).attr('control')).removeClass('d-inline').addClass('d-none');
+					} else {
+						$(this).attr('close',"false");
+						$(this).html('<i class="no-print fas fa-chevron-left"></i>');
+						$($(this).attr('control')).removeClass('d-none').addClass('d-inline');
+					}
 				});
+
+				
 			});
 		</script>
 

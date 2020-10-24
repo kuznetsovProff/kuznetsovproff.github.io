@@ -17,7 +17,7 @@
 		<link rel="stylesheet" href="../css/gutenberg.min.css" media="print">
 		<link rel="stylesheet" href="../css/print.css" media="print"/>
 	</head>
-	<body>
+	<body><!--
 		<nav id="topnavbar" class="navbar navbar-expand-sm bg-success navbar-dark fixed-top blockshadow no-print navbar-expand-md">
 			<a class="navbar-brand text-center" href="https://kuznetsovproff.github.io/"><span class="text-dark">SHARE</span> <span class="text-light"><i class="far fa-file-alt"></i> FORM</span></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
@@ -25,12 +25,12 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNav">
 				
-				<ul class="navbar-nav mr-auto text-center">
+				<ul class="navbar-nav mr-auto text-center">-->
 					<!--
 					<li class="nav-item active">
 						<a class="nav-link" href="https://kuznetsovproff.github.io/">Образцы заявлений</a>
 					</li>
-					-->
+					--><!--
 				</ul>
 				
 				<ul class="navbar-nav text-center">
@@ -45,11 +45,12 @@
 					</li>
 				</ul>
 			</div>
-		</nav>
+		</nav>-->
 		
 		<div id="topnavbarback" class="no-print">
 			<div class="undernavbarsection"></div>
 		</div>
+		
 		<div class="container">
 			<div class="row">
 			  <div class="col"></div>
@@ -136,51 +137,168 @@
 			}
 
 			$(document).ready(function(){
-				$('#btnlink').on('click', function(){
-					Clipboard.copy(url);
-				});
-			
-				$('#btnprint').on('click', function(){
-					window.print();
-				});
-			
-				$("#btnshare").on('click', function(){
-					$("#modalshare").modal();
-				});
 				
-				$('[data-toggle="tooltip"]').tooltip(); 
-				
-				$('select.selectpicker').on('change', function(){
-				   var selected = $('.selectpicker option:selected').val();
-				   $($(this).attr('change-control')).text(selected);
-				});
-				
-				$('div[close]').on('click', function(){
-					if ($(this).attr('close')=="false") {
-						$(this).attr('close',"true");
-						$(this).html('<i class="no-print fas fa-chevron-right"></i>');
-						$($(this).attr('control')).removeClass('d-inline').addClass('d-none');
-					} else {
-						$(this).attr('close',"false");
-						$(this).html('<i class="no-print fas fa-chevron-left"></i>');
-						$($(this).attr('control')).removeClass('d-none').addClass('d-inline');
-					}
-				});
-				// test json
-				
-				$.getJSON( "https://kuznetsovproff.github.io/ToHelpALawyer/docs/test.json", function( data ) {
-				  var items = [];
-				  $.each( data, function( key, val ) {
-					items.push( "<li id='" + key + "'>" + val + "</li>" );
-				  });
+				/*				
+				try {
+					// test getJSON
+					$.getJSON( "test.json", function( data ) {
+						var items = [];
+						$.each( data, function( key, val ) {
+							items.push( "<li id='" + key + "'>" + val + "</li>" );
+						});
+					 
+						$( "<ul/>", {
+							"class": "my-new-list",
+							html: items.join( "" )
+						}).appendTo( "body" );
+					});
+				} catch(e) {
+				*/	
+					// test parseJSON
+					var data = $.parseJSON( 
+						`{
+						  "one": "Singular sensation",
+						  "two": "Beady little eyes",
+						  "three": "Little birds pitch by my doorstep"
+						}` 
+					);
+					var items = [];
+					$.each( data, function( key, val ) {
+						items.push( "<li id='" + key + "'>" + val + "</li>" );
+					});
 				 
-				  $( "<ul/>", {
-					"class": "my-new-list",
-					html: items.join( "" )
-				  }).appendTo( "body" );
-				});
+					$( "<ul/>", {
+						"class": "my-new-list",
+						html: items.join( "" )
+					}).appendTo( "body" );
+			
+					$( "<nav/>", {
+						"id": "topnavbar",
+						"class": "navbar navbar-expand-sm bg-success navbar-dark fixed-top blockshadow no-print navbar-expand-md",
+					}).appendTo( "body" );
+			
+					var a_logo = $("#topnavbar").append($("<a/>", {
+						"class": "navbar-brand text-center",
+						"href": "https://kuznetsovproff.github.io/",
+						"html": "<span class='text-dark'>SHARE</span> <span class='text-light'><i class='far fa-file-alt'></i> FORM</span>",
+					}));
+					
+					var btn_toggler = $("#topnavbar").append($("<button/>", {
+						"class": "navbar-toggler",
+						"type": "button",
+						"data-toggle": "collapse",
+						"data-target": "#navbarNav",
+						"html": "<span class='navbar-toggler-icon'></span>",
+					}));
+
+					var navbarNav = $("#topnavbar").append($("<div/>", {
+						"class": "collapse navbar-collapse",
+						"id": "navbarNav",
+					}));
+						
+					var ul = navbarNav.append($("<ul/>", {
+						"id": "ul_btns",
+						"class": "navbar-nav mr-auto text-center",
+					}));
+										
+					var json_btns = $.parseJSON( 
+						`{
+						  "btnprint": {
+							"title": "Печать",
+							"fntawesome": "fas fa-print"
+							},
+						  "btnlink": {
+							"title": "Копировать ссылку",
+							"fntawesome": "fas fa-link"
+							},
+						  "btnshare": {
+							"title": "Поделиться ссылкой",
+							"fntawesome": "fas fa-share"
+							}
+						}` 
+					);
+					var arr_btns = [];
+					$.each( json_btns, function( key, val ) {
+						$("#ul_btns").append($("<li/>", {
+							"class": "nav-item",
+							"html": "<a id='" + key + "' class='nav-link' data-toggle='tooltip'" +
+								" title='" + val.title + "' href='#'><i class='"+val.fntawesome+"'><i></a>",
+						} ));
+						
+					});
 				
+					$('#btnlink').on('click', function(){
+						Clipboard.copy(url);
+					});
+				
+					$('#btnprint').on('click', function(){
+						window.print();
+					});
+				
+					$("#btnshare").on('click', function(){
+						$("#modalshare").modal();
+					});
+					
+					$('[data-toggle="tooltip"]').tooltip(); 
+					
+					$('select.selectpicker').on('change', function(){
+					   var selected = $('.selectpicker option:selected').val();
+					   $($(this).attr('change-control')).text(selected);
+					});
+					
+					$('div[close]').on('click', function(){
+						if ($(this).attr('close')=="false") {
+							$(this).attr('close',"true");
+							$(this).html('<i class="no-print fas fa-chevron-right"></i>');
+							$($(this).attr('control')).removeClass('d-inline').addClass('d-none');
+						} else {
+							$(this).attr('close',"false");
+							$(this).html('<i class="no-print fas fa-chevron-left"></i>');
+							$($(this).attr('control')).removeClass('d-none').addClass('d-inline');
+						}
+					});
+				
+				
+				/*}*/
 			});
+		/*
+		
+		<nav id="topnavbar" class="navbar navbar-expand-sm bg-success navbar-dark fixed-top blockshadow no-print navbar-expand-md">
+			<a class="navbar-brand text-center" href="https://kuznetsovproff.github.io/"><span class="text-dark">SHARE</span> <span class="text-light"><i class="far fa-file-alt"></i> FORM</span></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				
+				<ul class="navbar-nav mr-auto text-center">
+					<!--
+					<li class="nav-item active">
+						<a class="nav-link" href="https://kuznetsovproff.github.io/">Образцы заявлений</a>
+					</li>
+					-->
+				</ul>
+				
+				<ul class="navbar-nav text-center">
+					<li class="nav-item">
+						<a id="btnprint" class="nav-link" data-toggle="tooltip" title="Печать" href="#"><i class="fas fa-print"></i></a>
+					</li>
+					<li class="nav-item">
+						<a id="btnlink" class="nav-link" data-toggle="tooltip" title="Копировать ссылку" href="#"><i class="fas fa-link"></i></a>
+					</li>
+					<li class="nav-item">
+						<a id="btnshare" class="nav-link" data-toggle="tooltip" title="Поделиться ссылкой" href="#"><i class="fas fa-share"></i></a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		
+		<div id="topnavbarback" class="no-print">
+			<div class="undernavbarsection"></div>
+		</div>
+		
+		*/
+		
+		
 		</script>
 
 	</body>

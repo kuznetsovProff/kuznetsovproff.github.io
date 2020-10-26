@@ -42,36 +42,51 @@
 				"id": "topnavbar",
 				"class": "navbar navbar-expand-sm bg-success navbar-dark fixed-top blockshadow no-print navbar-expand-md",
 				"html": `
-					<!-- 1 -->
-					<a class="navbar-brand text-center" href="https://kuznetsovproff.github.io/"><span class="text-dark">SHARE</span> <span class="text-light"><i class="far fa-file-alt"></i> FORM</span></a>
-					<!-- 2 -->
-					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
-						<span class="navbar-toggler-icon"></span>
-					</button>
-					<!-- 3 -->
-					<div class="collapse navbar-collapse" id="navbarNav">
-						<ul class="navbar-nav mr-auto text-center">
-							<!--
-							<li class="nav-item active">
-								<a class="nav-link" href="https://kuznetsovproff.github.io/">Образцы заявлений</a>
-							</li>
-							-->
-						</ul>
-						<ul class="navbar-nav text-center">
-							<li class="nav-item">
-								<a id="btnprint" class="nav-link" data-toggle="tooltip" title="Печать" href="#"><i class="fas fa-print"></i></a>
-							</li>
-							<li class="nav-item">
-								<a id="btnlink" class="nav-link" data-toggle="tooltip" title="Копировать ссылку" href="#"><i class="fas fa-link"></i></a>
-							</li>
-							<li class="nav-item">
-								<a id="btnshare" class="nav-link" data-toggle="tooltip" title="Поделиться ссылкой" href="#"><i class="fas fa-share"></i></a>
-							</li>
-						</ul>
-					</div>
+					
 				`
 			}).appendTo( '#container' );
 			
+			$('<a/>', {
+				"class": "navbar-brand text-center",
+				"href": "https://kuznetsovproff.github.io/",
+				"html": '<span class="text-dark">SHARE</span> <span class="text-light"><i class="far fa-file-alt"></i> FORM</span>',
+			}).appendTo( '#topnavbar' );
+			
+			$('<button/>', {
+				"class": "navbar-toggler",
+				"type": "button",
+				"data-toggle": "collapse",
+				"data-target": "#navbarNav",
+				"html": '<span class="navbar-toggler-icon"></span>',
+			}).appendTo( '#topnavbar' );
+
+			// btn-icons
+			$('<div/>', {
+				"class": "collapse navbar-collapse",
+				"id": "navbarNav",
+				"html": `
+					<ul class="navbar-nav mr-auto text-center">
+						<!--
+						<li class="nav-item active">
+							<a class="nav-link" href="https://kuznetsovproff.github.io/">Образцы заявлений</a>
+						</li>
+						-->
+					</ul>
+					<ul class="navbar-nav text-center">
+						<li class="nav-item">
+							<a id="btnprint" class="nav-link" data-toggle="tooltip" title="Печать" href="#"><i class="fas fa-print"></i></a>
+						</li>
+						<li class="nav-item">
+							<a id="btnlink" class="nav-link" data-toggle="tooltip" title="Копировать ссылку" href="#"><i class="fas fa-link"></i></a>
+						</li>
+						<li class="nav-item">
+							<a id="btnshare" class="nav-link" data-toggle="tooltip" title="Поделиться ссылкой" href="#"><i class="fas fa-share"></i></a>
+						</li>
+					</ul>
+				`,
+			}).appendTo( '#topnavbar' );
+			
+				
 			$( '<div/>', {
 				"id": "topnavbarback",
 				"class": "no-print",

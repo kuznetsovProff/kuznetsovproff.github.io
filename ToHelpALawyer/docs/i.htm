@@ -171,7 +171,7 @@
 						"class": "my-new-list",
 						html: items.join( "" )
 					}).appendTo( "body" );
-			
+			/*
 					$( "<nav/>", {
 						"id": "topnavbar",
 						"class": "navbar navbar-expand-sm bg-success navbar-dark fixed-top blockshadow no-print navbar-expand-md",
@@ -199,7 +199,7 @@
 					var ul = navbarNav.append($("<ul/>", {
 						"id": "ul_btns",
 						"class": "navbar-nav mr-auto text-center",
-					}));
+					}));*/
 										
 					var json_btns = $.parseJSON( 
 						`{
@@ -216,7 +216,7 @@
 							"fntawesome": "fas fa-share"
 							}
 						}` 
-					);
+					);/*
 					var arr_btns = [];
 					$.each( json_btns, function( key, val ) {
 						$("#ul_btns").append($("<li/>", {
@@ -226,7 +226,7 @@
 						} ));
 						
 					});
-				
+				*/
 					$('#btnlink').on('click', function(){
 						Clipboard.copy(url);
 					});

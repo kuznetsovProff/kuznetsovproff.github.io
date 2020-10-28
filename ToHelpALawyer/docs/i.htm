@@ -21,7 +21,7 @@
 		<div id="container"></div>
 	</body>
 	<script>
-/*
+
 		const url = new URL(document.location.href);
 		console.log (url);
 		const paramsString = document.location.search; // ?page=4&limit=10&sortby=desc  
@@ -35,7 +35,7 @@
 			}
 			
 		}
-*/
+
 		$(document).ready(function(){
 						
 			$( '<nav/>', {
@@ -60,31 +60,71 @@
 				"html": '<span class="navbar-toggler-icon"></span>',
 			}).appendTo( '#topnavbar' );
 
-			// btn-icons
+			// menu
 			$('<div/>', {
 				"class": "collapse navbar-collapse",
 				"id": "navbarNav",
-				"html": `
-					<ul class="navbar-nav mr-auto text-center">
-						<!--
-						<li class="nav-item active">
-							<a class="nav-link" href="https://kuznetsovproff.github.io/">Образцы заявлений</a>
-						</li>
-						-->
-					</ul>
-					<ul class="navbar-nav text-center">
-						<li class="nav-item">
-							<a id="btnprint" class="nav-link" data-toggle="tooltip" title="Печать" href="#"><i class="fas fa-print"></i></a>
-						</li>
-						<li class="nav-item">
-							<a id="btnlink" class="nav-link" data-toggle="tooltip" title="Копировать ссылку" href="#"><i class="fas fa-link"></i></a>
-						</li>
-						<li class="nav-item">
-							<a id="btnshare" class="nav-link" data-toggle="tooltip" title="Поделиться ссылкой" href="#"><i class="fas fa-share"></i></a>
-						</li>
-					</ul>
-				`,
 			}).appendTo( '#topnavbar' );
+			
+			$('<ul/>',{
+				"class": "navbar-nav mr-auto text-center",
+				"html": `
+					<li class="nav-item active">
+						<!--	<a class="nav-link" href="https://kuznetsovproff.github.io/">Образцы заявлений</a>    -->
+					</li>
+				`,
+			}).appendTo( '#navbarNav' );
+			
+			$('<ul/>',{
+				"id": "btn_icons",
+				"class": "navbar-nav text-center",
+			}).appendTo( '#navbarNav' );
+			
+			// Здесь должен начинаться разбор JSON
+			
+			/*				
+			try {
+				// test getJSON
+				$.getJSON( "test.json", function( data ) {
+					var items = [];
+					$.each( data, function( key, val ) {
+						items.push( "<li id='" + key + "'>" + val + "</li>" );
+					});
+				 
+					$( "<ul/>", {
+						"class": "my-new-list",
+						html: items.join( "" )
+					}).appendTo( "body" );
+				});
+			} catch(e) {
+			}
+			*/
+			
+			// Кнопки с иконками
+			var json_btns = $.parseJSON( 
+					`{
+					  "btnprint": {
+						"title": "Печать",
+						"fntawesome": "fas fa-print"
+						},
+					  "btnlink": {
+						"title": "Копировать ссылку",
+						"fntawesome": "fas fa-link"
+						},
+					  "btnshare": {
+						"title": "Поделиться ссылкой",
+						"fntawesome": "fas fa-share"
+						}
+					}` 
+				);
+			var arr_btns = [];
+			$.each( json_btns, function( key, val ) {
+				$("<li/>", {
+						"class": "nav-item active",
+						"html": "<a id='" + key + "' class='nav-link' data-toggle='tooltip'" +
+							" title='" + val.title + "' href='#'><i class='"+val.fntawesome+"'><i></a>",
+				} ).appendTo( '#btn_icons' );
+			});
 			
 				
 			$( '<div/>', {
@@ -96,7 +136,7 @@
 			$( '<div/>', {
 				"class": "container",
 				"html": `
-				
+		<!-- 1 -->		
 		<div class="row">
 		  <div class="col"></div>
 		  <div class="col">
@@ -108,60 +148,82 @@
 		  </div>
 		</div>
 		
+		<!-- 2,3,4 -->
 		<div class="emptyline"></div>
 		<div class="emptyline"></div>
 		<div class="emptyline"></div>
+		<!-- 5 -->
 		<div class="text-center font-weight-bold">ЗАЯВЛЕНИЕ<br>
 		о возбуждении исполнительного производства</div>
+		<!-- 6,7 -->
 		<div class="emptyline"></div>
 		<div class="emptyline"></div>
+		<!-- 8 -->
 		<div class="text-justify text-indent"><div id="docdate" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="«___»_________ ____ г. (дата выдачи исполнительного документа)"></div> по делу <div id="casenum" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="(указать наименование дела; его можно посмотреть в шапке исполнительного документа)"></div> <div id="courtname" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="(наименование суда, выдавшего исполнительный документ)"></div> выдал <select class="selectpicker" change-control="#doctype"><option>исполнительный лист</option><option>судебный приказ</option></select> <div id="doctype" class="divhidden">исполнительный лист</div> <div id="docnum" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="(номер исполнительного документа)"></div> в отношении должника <div id="debtor" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="(ФИО должника, дата и место рождения, его место жительства или место пребывания, телефон, место работы / наименование должника, ИНН, ОГРН, адрес регистрации, фактический адрес)"></div>.</div>
+		<!-- 9 -->
 		<div id="p-history" class="text-justify text-indent"><div id="history" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="Ранее по данному исполнительному документу исполнительное производство не возбуждалось (если возбуждалось, указать, когда возбуждалось, когда окончено и почему, какие исполнительные действия выполнены, сколько денег было взыскано, какое имущество передано)."></div><div class="d-inline" close="false" control="#history"><i class="no-print fas fa-chevron-left"></i></div></div>
+		<!-- 10 -->
 		<div id="aboutdebtor" class="text-justify text-indent"><div id="addinfo" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="Дополнительно сообщаю известные мне сведения о должнике и его имуществе: (указать все известные сведения о должнике и его имуществе, которые могут помочь в исполнении судебного постановления)."></div><div class="d-inline" close="false" control="#addinfo"><i class="no-print fas fa-chevron-left"></i></div></div>
+		<!-- 11 -->
 		<div id="aboutproperty" class="text-justify text-indent"><div id="propertylist" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="В целях обеспечения исполнения требований, содержащихся в исполнительном документе, одновременно с возбуждением исполнительного производства необходимо решить вопрос о наложении ареста на имущество должника (при наличии сведений перечислить имущество, на которое должен быть наложен арест), поскольку должник может принять меры для сокрытия своего имущества."></div><div class="d-inline" close="false" control="#propertylist"><i class="no-print fas fa-chevron-left"></i></div></div>
+		<!-- 12 -->
 		<div class="text-justify text-indent">На основании изложенного, руководствуясь статьей 30 Федерального закона «Об исполнительном производстве»,</div>
+		<!-- 13 -->
 		<div class="emptyline"></div>
+		<!-- 14 -->
 		<div class="text-center font-weight-bold">ПРОШУ:</div>
+		<!-- 15 -->
 		<div id="p1" class="text-justify text-indent"><div id="requestforenforcement" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="1. Возбудить исполнительное производство.">1. Возбудить исполнительное производство.</div></div>
+		<!-- 16 -->
 		<div id="p2" class="text-justify text-indent"><div id="seizurerequest" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="2. Наложить арест на имущество должника."></div><div class="d-inline" close="false" control="#seizurerequest"><i class="no-print fas fa-chevron-left"></i></div></div>
+		<!-- 17 -->
 		<div class="emptyline"></div>
+		<!-- 18 -->
 		<div class="text-justify font-weight-bold text-indent">Приложения:</div>
+		<!-- 19 -->
 		<div id="a1" class="text-justify text-indent"><div id="attachment1" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="1. Исполнительный документ.">1. Исполнительный документ.</div></div>
+		<!-- 20 -->
 		<div id="a2" class="text-justify text-indent"><div id="attachment2" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="2. Документы, содержащие информацию о должнике, его имущественном положении и иные сведения, которые могут иметь значение для своевременного и полного исполнения требований исполнительного документа."></div><div class="d-inline" close="false" control="#attachment2"><i class="no-print fas fa-chevron-left"></i></div></div>
+		<!-- 21 -->
 		<div class="emptyline"></div>
+		<!-- 22 -->
 		<div class="text-right font-weight-bold">Дата подачи заявления <span id="filingdate">«___»_________ ____ г.</span></div>
+		<!-- 23 -->
 		<div class="emptyline"></div>
+		<!-- 24 -->
 		<div class="text-right font-weight-bold">Подпись ______________</div>
+		<!-- 25 -->
 		<div class="emptyline"></div>
-		
-		<!-- The Modal -->
-		<div class="modal fade" id="modalshare">
-			<div class="modal-dialog modal-dialog-centered">
-				<div class="modal-content">
-			  
-					<!-- Modal Header -->
-					<div class="modal-header">
-						<h4 class="modal-title">Поделиться ссылкой</h4>
-						<button type="button" class="close" data-dismiss="modal">×</button>
-					</div>
-					
-					<!-- Modal body -->
-					<div id="icons" class="modal-body text-center container">
-						<div class="ya-share2" data-curtain data-size="l" data-shape="round" data-services="vkontakte,facebook,odnoklassniki,messenger,telegram,twitter,viber,whatsapp,pinterest,collections,moimir,skype,tumblr,evernote,linkedin,lj,blogger,delicious,digg,reddit,pocket,qzone,renren,sinaWeibo,surfingbird,tencentWeibo"></div>
-					</div>
-					
-					<!-- Modal footer -->
-					<div class="modal-footer">
-						<button type="button" class="btn btn-danger" data-dismiss="modal">Закрыть</button>
-					</div>
-				
-				</div>
-			</div>
-		</div>
-
-		
-		
 	</div>
+				`
+			}).appendTo( '#container');
+			
+			/* The Modal */
+			$( '<div/>', {
+				"id": "modalshare",
+				"class": "modal fade",
+				"html": `
+				<div class="modal-dialog modal-dialog-centered">
+					<div class="modal-content">
+				  
+						<!-- Modal Header -->
+						<div class="modal-header">
+							<h4 class="modal-title">Поделиться ссылкой</h4>
+							<button type="button" class="close" data-dismiss="modal">×</button>
+						</div>
+						
+						<!-- Modal body -->
+						<div id="icons" class="modal-body text-center container">
+							<div class="ya-share2" data-curtain data-size="l" data-shape="round" data-services="vkontakte,facebook,odnoklassniki,messenger,telegram,twitter,viber,whatsapp,pinterest,collections,moimir,skype,tumblr,evernote,linkedin,lj,blogger,delicious,digg,reddit,pocket,qzone,renren,sinaWeibo,surfingbird,tencentWeibo"></div>
+						</div>
+						
+						<!-- Modal footer -->
+						<div class="modal-footer">
+							<button type="button" class="btn btn-danger" data-dismiss="modal">Закрыть</button>
+						</div>
+					
+					</div>
+				</div>
 				`
 				}).appendTo( '#container');
 			
@@ -190,7 +252,7 @@
 				});
 			} catch(e) {
 			*/	
-			
+			/*}*/
 			
 				// test parseJSON
 				/*
@@ -211,62 +273,8 @@
 					"class": "my-new-list",
 					html: items.join( "" )
 				}).appendTo( "body" );
-	
-				$( "<nav/>", {
-					"id": "topnavbar",
-					"class": "navbar navbar-expand-sm bg-success navbar-dark fixed-top blockshadow no-print navbar-expand-md",
-				}).appendTo( "body" );
-		
-				var a_logo = $("#topnavbar").append($("<a/>", {
-					"class": "navbar-brand text-center",
-					"href": "https://kuznetsovproff.github.io/",
-					"html": "<span class='text-dark'>SHARE</span> <span class='text-light'><i class='far fa-file-alt'></i> FORM</span>",
-				}));
+				*/
 				
-				var btn_toggler = $("#topnavbar").append($("<button/>", {
-					"class": "navbar-toggler",
-					"type": "button",
-					"data-toggle": "collapse",
-					"data-target": "#navbarNav",
-					"html": "<span class='navbar-toggler-icon'></span>",
-				}));
-
-				var navbarNav = $("#topnavbar").append($("<div/>", {
-					"class": "collapse navbar-collapse",
-					"id": "navbarNav",
-				}));
-					
-				var ul = navbarNav.append($("<ul/>", {
-					"id": "ul_btns",
-					"class": "navbar-nav mr-auto text-center",
-				}));*/
-				/*				
-				var json_btns = $.parseJSON( 
-					`{
-					  "btnprint": {
-						"title": "Печать",
-						"fntawesome": "fas fa-print"
-						},
-					  "btnlink": {
-						"title": "Копировать ссылку",
-						"fntawesome": "fas fa-link"
-						},
-					  "btnshare": {
-						"title": "Поделиться ссылкой",
-						"fntawesome": "fas fa-share"
-						}
-					}` 
-				);
-				var arr_btns = [];
-				$.each( json_btns, function( key, val ) {
-					$("#ul_btns").append($("<li/>", {
-						"class": "nav-item",
-						"html": "<a id='" + key + "' class='nav-link' data-toggle='tooltip'" +
-							" title='" + val.title + "' href='#'><i class='"+val.fntawesome+"'><i></a>",
-					} ));
-					
-				});
-			*/
 				$('#btnlink').on('click', function(){
 					Clipboard.copy(url);
 				});

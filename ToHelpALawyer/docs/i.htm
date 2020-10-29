@@ -134,48 +134,11 @@
 				}).appendTo( '#container');
 			
 			$( '<div/>', {
+				"id": "formwrapper",
 				"class": "container",
 				"html": `
-		<!-- 1 -->		
-		<div class="row">
-		  <div class="col"></div>
-		  <div class="col">
-			<div class="text-left"><div class="d-inline"><div class="d-inline">В </div><div id="ospname" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="(наименование отдела судебных приставов)"></div></div></div>
-			<div class="emptyline"></div>
-			<div class="text-left d-inline"><div class="d-inline">от </div><div id="claimantname" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="(ФИО взыскателя)"></div></div>
-			<div class="text-left"><div class="d-inline">адрес: </div><div id="claimantaddress" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="(адрес взыскателя)"></div></div>
-			<div class="text-left"><div class="d-inline">телефон: </div><div id="claimantphone" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="(телефон взыскателя)"></div></div>
-		  </div>
-		</div>
-		
-		<!-- 2,3,4 -->
-		<div class="emptyline"></div>
-		<div class="emptyline"></div>
-		<div class="emptyline"></div>
-		<!-- 5 -->
-		<div class="text-center font-weight-bold">ЗАЯВЛЕНИЕ<br>
-		о возбуждении исполнительного производства</div>
-		<!-- 6,7 -->
-		<div class="emptyline"></div>
-		<div class="emptyline"></div>
-		<!-- 8 -->
-		<div class="text-justify text-indent"><div id="docdate" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="«___»_________ ____ г. (дата выдачи исполнительного документа)"></div> по делу <div id="casenum" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="(указать наименование дела; его можно посмотреть в шапке исполнительного документа)"></div> <div id="courtname" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="(наименование суда, выдавшего исполнительный документ)"></div> выдал <select class="selectpicker" change-control="#doctype"><option>исполнительный лист</option><option>судебный приказ</option></select> <div id="doctype" class="divhidden">исполнительный лист</div> <div id="docnum" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="(номер исполнительного документа)"></div> в отношении должника <div id="debtor" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="(ФИО должника, дата и место рождения, его место жительства или место пребывания, телефон, место работы / наименование должника, ИНН, ОГРН, адрес регистрации, фактический адрес)"></div>.</div>
-		<!-- 9 -->
-		<div id="p-history" class="text-justify text-indent"><div id="history" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="Ранее по данному исполнительному документу исполнительное производство не возбуждалось (если возбуждалось, указать, когда возбуждалось, когда окончено и почему, какие исполнительные действия выполнены, сколько денег было взыскано, какое имущество передано)."></div><div class="d-inline" close="false" control="#history"><i class="no-print fas fa-chevron-left"></i></div></div>
-		<!-- 10 -->
-		<div id="aboutdebtor" class="text-justify text-indent"><div id="addinfo" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="Дополнительно сообщаю известные мне сведения о должнике и его имуществе: (указать все известные сведения о должнике и его имуществе, которые могут помочь в исполнении судебного постановления)."></div><div class="d-inline" close="false" control="#addinfo"><i class="no-print fas fa-chevron-left"></i></div></div>
-		<!-- 11 -->
-		<div id="aboutproperty" class="text-justify text-indent"><div id="propertylist" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="В целях обеспечения исполнения требований, содержащихся в исполнительном документе, одновременно с возбуждением исполнительного производства необходимо решить вопрос о наложении ареста на имущество должника (при наличии сведений перечислить имущество, на которое должен быть наложен арест), поскольку должник может принять меры для сокрытия своего имущества."></div><div class="d-inline" close="false" control="#propertylist"><i class="no-print fas fa-chevron-left"></i></div></div>
-		<!-- 12 -->
-		<div class="text-justify text-indent">На основании изложенного, руководствуясь статьей 30 Федерального закона «Об исполнительном производстве»,</div>
-		<!-- 13 -->
-		<div class="emptyline"></div>
-		<!-- 14 -->
-		<div class="text-center font-weight-bold">ПРОШУ:</div>
-		<!-- 15 -->
-		<div id="p1" class="text-justify text-indent"><div id="requestforenforcement" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="1. Возбудить исполнительное производство.">1. Возбудить исполнительное производство.</div></div>
-		<!-- 16 -->
-		<div id="p2" class="text-justify text-indent"><div id="seizurerequest" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="2. Наложить арест на имущество должника."></div><div class="d-inline" close="false" control="#seizurerequest"><i class="no-print fas fa-chevron-left"></i></div></div>
+
+
 		<!-- 17 -->
 		<div class="emptyline"></div>
 		<!-- 18 -->
@@ -197,6 +160,109 @@
 	</div>
 				`
 			}).appendTo( '#container');
+			
+			$( '<div/>', {
+				"class": "no-print",
+				"html": `
+				<!-- 1 -->		
+				<div class="row">
+				  <div class="col"></div>
+				  <div class="col">
+					<div class="text-left"><div class="d-inline"><div class="d-inline">В </div><div id="ospname" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="(наименование отдела судебных приставов)"></div></div></div>
+					<div class="emptyline"></div>
+					<div class="text-left d-inline"><div class="d-inline">от </div><div id="claimantname" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="(ФИО взыскателя)"></div></div>
+					<div class="text-left"><div class="d-inline">адрес: </div><div id="claimantaddress" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="(адрес взыскателя)"></div></div>
+					<div class="text-left"><div class="d-inline">телефон: </div><div id="claimantphone" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="(телефон взыскателя)"></div></div>
+				  </div>
+				</div>
+				`,
+			}).appendTo( '#formwrapper' );		
+			
+			$( '<div/>', {
+				"class": "no-print",
+				"html": "<div class='emptyline'></div>",
+			}).appendTo( '#formwrapper' );				
+			$( '<div/>', {
+				"class": "no-print",
+				"html": "<div class='emptyline'></div>",
+			}).appendTo( '#formwrapper' );
+			$( '<div/>', {
+				"class": "no-print",
+				"html": "<div class='emptyline'></div>",
+			}).appendTo( '#formwrapper' );
+			
+			$( '<div/>', {
+				"class": "text-center font-weight-bold",
+				"html": "ЗАЯВЛЕНИЕ<br>о возбуждении исполнительного производства",
+			}).appendTo( '#formwrapper' );
+			
+			$( '<div/>', {
+				"class": "no-print",
+				"html": "<div class='emptyline'></div>",
+			}).appendTo( '#formwrapper' );
+			$( '<div/>', {
+				"class": "no-print",
+				"html": "<div class='emptyline'></div>",
+			}).appendTo( '#formwrapper' );
+			
+			$( '<div/>', {
+				"class": "text-justify text-indent",
+				"html": `
+				<div id="docdate" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="«___»_________ ____ г. (дата выдачи исполнительного документа)"></div> по делу <div id="casenum" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="(указать наименование дела; его можно посмотреть в шапке исполнительного документа)"></div> <div id="courtname" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="(наименование суда, выдавшего исполнительный документ)"></div> выдал <select class="selectpicker" change-control="#doctype"><option>исполнительный лист</option><option>судебный приказ</option></select> <div id="doctype" class="divhidden">исполнительный лист</div> <div id="docnum" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="(номер исполнительного документа)"></div> в отношении должника <div id="debtor" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="(ФИО должника, дата и место рождения, его место жительства или место пребывания, телефон, место работы / наименование должника, ИНН, ОГРН, адрес регистрации, фактический адрес)"></div>.
+				`,
+			}).appendTo( '#formwrapper' );
+
+			$( '<div/>', {
+				"id": "p-history",
+				"class": "text-justify text-indent",
+				"html": `
+				<div id="history" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="Ранее по данному исполнительному документу исполнительное производство не возбуждалось (если возбуждалось, указать, когда возбуждалось, когда окончено и почему, какие исполнительные действия выполнены, сколько денег было взыскано, какое имущество передано)."></div><div class="d-inline" close="false" control="#history"><i class="no-print fas fa-chevron-left"></i></div>
+				`,
+			}).appendTo( '#formwrapper' );			
+
+			$( '<div/>', {
+				"id": "aboutdebtor",
+				"class": "text-justify text-indent",
+				"html": `
+				<div id="addinfo" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="Дополнительно сообщаю известные мне сведения о должнике и его имуществе: (указать все известные сведения о должнике и его имуществе, которые могут помочь в исполнении судебного постановления)."></div><div class="d-inline" close="false" control="#addinfo"><i class="no-print fas fa-chevron-left"></i></div>
+				`,
+			}).appendTo( '#formwrapper' );	
+
+			$( '<div/>', {
+				"id": "aboutproperty",
+				"class": "text-justify text-indent",
+				"html": `
+				<div id="propertylist" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="В целях обеспечения исполнения требований, содержащихся в исполнительном документе, одновременно с возбуждением исполнительного производства необходимо решить вопрос о наложении ареста на имущество должника (при наличии сведений перечислить имущество, на которое должен быть наложен арест), поскольку должник может принять меры для сокрытия своего имущества."></div><div class="d-inline" close="false" control="#propertylist"><i class="no-print fas fa-chevron-left"></i></div>
+				`,
+			}).appendTo( '#formwrapper' );
+
+			$( '<div/>', {
+				"class": "text-justify text-indent",
+				"html": "На основании изложенного, руководствуясь статьей 30 Федерального закона «Об исполнительном производстве»,",
+			}).appendTo( '#formwrapper' );
+
+			$( '<div/>', {
+				"class": "no-print",
+				"html": "<div class='emptyline'></div>",
+			}).appendTo( '#formwrapper' );
+			
+			$( '<div/>', {
+				"class": "text-center font-weight-bold",
+				"html": "ПРОШУ:",
+			}).appendTo( '#formwrapper' );
+			
+			$( '<div/>', {
+				"id": "p1",
+				"class": "text-justify text-indent",
+				"html": `<div id="requestforenforcement" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="1. Возбудить исполнительное производство.">1. Возбудить исполнительное производство.</div>`,
+			}).appendTo( '#formwrapper' );
+
+			$( '<div/>', {
+				"id": "p2",
+				"class": "text-justify text-indent",
+				"html": `<div id="seizurerequest" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="2. Наложить арест на имущество должника."></div><div class="d-inline" close="false" control="#seizurerequest"><i class="no-print fas fa-chevron-left"></i></div>`,
+			}).appendTo( '#formwrapper' );
+
 			
 			/* The Modal */
 			$( '<div/>', {

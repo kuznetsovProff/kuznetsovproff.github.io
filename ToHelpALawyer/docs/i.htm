@@ -135,37 +135,12 @@
 			
 			$( '<div/>', {
 				"id": "formwrapper",
-				"class": "container",
-				"html": `
-
-
-		<!-- 17 -->
-		<div class="emptyline"></div>
-		<!-- 18 -->
-		<div class="text-justify font-weight-bold text-indent">Приложения:</div>
-		<!-- 19 -->
-		<div id="a1" class="text-justify text-indent"><div id="attachment1" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="1. Исполнительный документ.">1. Исполнительный документ.</div></div>
-		<!-- 20 -->
-		<div id="a2" class="text-justify text-indent"><div id="attachment2" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="2. Документы, содержащие информацию о должнике, его имущественном положении и иные сведения, которые могут иметь значение для своевременного и полного исполнения требований исполнительного документа."></div><div class="d-inline" close="false" control="#attachment2"><i class="no-print fas fa-chevron-left"></i></div></div>
-		<!-- 21 -->
-		<div class="emptyline"></div>
-		<!-- 22 -->
-		<div class="text-right font-weight-bold">Дата подачи заявления <span id="filingdate">«___»_________ ____ г.</span></div>
-		<!-- 23 -->
-		<div class="emptyline"></div>
-		<!-- 24 -->
-		<div class="text-right font-weight-bold">Подпись ______________</div>
-		<!-- 25 -->
-		<div class="emptyline"></div>
-	</div>
-				`
+				"class": "container",				
 			}).appendTo( '#container');
 			
 			$( '<div/>', {
-				"class": "no-print",
+				"class": "row",
 				"html": `
-				<!-- 1 -->		
-				<div class="row">
 				  <div class="col"></div>
 				  <div class="col">
 					<div class="text-left"><div class="d-inline"><div class="d-inline">В </div><div id="ospname" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="(наименование отдела судебных приставов)"></div></div></div>
@@ -174,21 +149,17 @@
 					<div class="text-left"><div class="d-inline">адрес: </div><div id="claimantaddress" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="(адрес взыскателя)"></div></div>
 					<div class="text-left"><div class="d-inline">телефон: </div><div id="claimantphone" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="(телефон взыскателя)"></div></div>
 				  </div>
-				</div>
 				`,
 			}).appendTo( '#formwrapper' );		
 			
 			$( '<div/>', {
-				"class": "no-print",
-				"html": "<div class='emptyline'></div>",
-			}).appendTo( '#formwrapper' );				
+				"class": "emptyline",
+			}).appendTo( '#formwrapper' );			
 			$( '<div/>', {
-				"class": "no-print",
-				"html": "<div class='emptyline'></div>",
+				"class": "emptyline",
 			}).appendTo( '#formwrapper' );
 			$( '<div/>', {
-				"class": "no-print",
-				"html": "<div class='emptyline'></div>",
+				"class": "emptyline",
 			}).appendTo( '#formwrapper' );
 			
 			$( '<div/>', {
@@ -197,12 +168,10 @@
 			}).appendTo( '#formwrapper' );
 			
 			$( '<div/>', {
-				"class": "no-print",
-				"html": "<div class='emptyline'></div>",
+				"class": "emptyline",
 			}).appendTo( '#formwrapper' );
 			$( '<div/>', {
-				"class": "no-print",
-				"html": "<div class='emptyline'></div>",
+				"class": "emptyline",
 			}).appendTo( '#formwrapper' );
 			
 			$( '<div/>', {
@@ -242,8 +211,7 @@
 			}).appendTo( '#formwrapper' );
 
 			$( '<div/>', {
-				"class": "no-print",
-				"html": "<div class='emptyline'></div>",
+				"class": "emptyline",
 			}).appendTo( '#formwrapper' );
 			
 			$( '<div/>', {
@@ -263,7 +231,51 @@
 				"html": `<div id="seizurerequest" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="2. Наложить арест на имущество должника."></div><div class="d-inline" close="false" control="#seizurerequest"><i class="no-print fas fa-chevron-left"></i></div>`,
 			}).appendTo( '#formwrapper' );
 
+			$( '<div/>', {
+				"class": "emptyline",
+			}).appendTo( '#formwrapper' );
+
+			$( '<div/>', {
+				"class": "text-justify font-weight-bold text-indent",
+				"html": "Приложения:",
+			}).appendTo( '#formwrapper' );			
 			
+			$( '<div/>', {
+				"id": "a1",
+				"class": "text-justify text-indent",
+				"html": `<div id="attachment1" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="1. Исполнительный документ.">1. Исполнительный документ.</div>`,
+			}).appendTo( '#formwrapper' );
+			
+			$( '<div/>', {
+				"id": "a2",
+				"class": "text-justify text-indent",
+				"html": `<div id="attachment2" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="2. Документы, содержащие информацию о должнике, его имущественном положении и иные сведения, которые могут иметь значение для своевременного и полного исполнения требований исполнительного документа."></div><div class="d-inline" close="false" control="#attachment2"><i class="no-print fas fa-chevron-left"></i></div>`,
+			}).appendTo( '#formwrapper' );
+		
+			$( '<div/>', {
+				"class": "emptyline",
+			}).appendTo( '#formwrapper' );
+
+			$( '<div/>', {
+				"class": "text-right font-weight-bold text-indent",
+				"html": `Дата подачи заявления <span id="filingdate">«___»_________ ____ г.</span>`,
+			}).appendTo( '#formwrapper' );		
+		
+			$( '<div/>', {
+				"class": "emptyline",
+			}).appendTo( '#formwrapper' );
+			
+			$( '<div/>', {
+				"class": "text-right font-weight-bold",
+				"html": "Подпись ______________",
+			}).appendTo( '#formwrapper' );
+			
+			$( '<div/>', {
+				"class": "emptyline",
+			}).appendTo( '#formwrapper' );
+
+
+		
 			/* The Modal */
 			$( '<div/>', {
 				"id": "modalshare",

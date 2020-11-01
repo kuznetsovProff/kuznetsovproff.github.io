@@ -1,11 +1,11 @@
 // кнопки иконки
-var json_menu =	`{
+let json_menu =	`{
 				  "btnprint": {	"title": "Печать", "fntawesome": "fas fa-print"	},
 				  "btnlink": { "title": "Копировать ссылку", "fntawesome": "fas fa-link" },
 				  "btnshare": { "title": "Поделиться ссылкой", "fntawesome": "fas fa-share" }
 				}`;
 				
-var json_form = `
+let json_form = `
 				{
 					"section1": {
 						"id": "sc1",

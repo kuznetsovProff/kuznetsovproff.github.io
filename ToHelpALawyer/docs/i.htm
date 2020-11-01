@@ -166,17 +166,19 @@
 					}).appendTo( '#formwrapper' ); 
 					
 					$.each( cols, function( key2, val2 ) {
-						alert(val2.id);
-						if ( key2 == "id" ) {
+						
+						if ( key2 == "col1" || key2 == "col2" ) {
+							alert(val2.id);
 							var col = $( '<div/>' , {
 								"id": val2.id
 							});
 							col.appendTo( '#'+val.id );
-						} else if ( key2 == "childs" ) {
+							
 							var childs = val2.childs;
-							$.each ( childs, function( key3, val3 ) {
-								alert( key3 );
-							});
+							
+						} else {
+							
+							
 						}
 					});
 					

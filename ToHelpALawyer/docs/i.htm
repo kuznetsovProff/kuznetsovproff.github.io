@@ -173,12 +173,15 @@
 							});
 							col.appendTo( '#'+val.id );
 						} else if ( key2 == "childs" ) {
-							
+							var childs = val2.childs;
+							$.each ( childs, function( key3, val3 ) {
+								alert( key3 );
+							});
 						}
 					});
 					
 				} else if (val.type == "1colSection") {
-					var elts = val.childs;
+					var childs = val.childs;
 				}
 				
 			});

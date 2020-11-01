@@ -1,0 +1,5 @@
+//favicon
+https://realfavicongenerator.net/favicon_result?file_id=p1em1jsheo1rso1ohefs7bt02396#.X56-bFgzYdV
+
+//запрос к файловой системе
+https://habr.com/ru/company/ruvds/blog/415505/

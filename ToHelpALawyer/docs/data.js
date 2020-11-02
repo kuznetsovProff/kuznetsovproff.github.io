@@ -19,12 +19,69 @@ let json_form = `
 								"childs": [
 									{
 										"type": "div",
-										"class": "text-left d-inline"
+										"class": "text-left",
+										"childs": [
+											{
+												"type": "div",
+												"class": "d-inline",
+												"text": "В "
+											},
+											{
+												"type": "div",
+												"id": "ospname",
+												"class": "d-inline bg-warning-opacity-10",
+												"contenteditable": "true",
+												"placeholder": "(наименование отдела судебных приставов)",
+												"text": ""
+											}
+											
+										]
 									},
 									{
 										"type": "div",
 										"class": "emptyline"
+									},
+									{
+										"type": "div",
+										"class": "text-left",
+										"childs": [
+											{
+												"type": "div",
+												"class": "d-inline",
+												"text": "от "
+											},
+											{
+												"type": "div",
+												"id": "claimantname",
+												"class": "d-inline bg-warning-opacity-10",
+												"contenteditable": "true",
+												"placeholder": "(ФИО взыскателя)",
+												"text": ""
+											}
+											
+										]
+									},
+									{
+										"type": "div",
+										"class": "text-left",
+										"childs": [
+											{
+												"type": "div",
+												"class": "d-inline",
+												"text": "адрес: "
+											},
+											{
+												"type": "div",
+												"id": "claimantaddress",
+												"class": "d-inline bg-warning-opacity-10",
+												"contenteditable": "true",
+												"placeholder": "(адрес взыскателя)",
+												"text": ""
+											}
+											
+										]
 									}
+
 								]
 							}
 						}
@@ -38,3 +95,11 @@ let json_form = `
 					}
 				}
 				`;
+				
+													
+									
+									/*
+									
+				<div class="text-left"><div class="d-inline">адрес: </div><div id="claimantaddress" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="(адрес взыскателя)"></div></div>
+				<div class="text-left"><div class="d-inline">телефон: </div><div id="claimantphone" class="d-inline bg-warning-opacity-10" contenteditable="true" placeholder="(телефон взыскателя)"></div></div>
+				*/
